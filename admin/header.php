@@ -31,9 +31,9 @@
   <body class="nav-md">
  <?php 
     session_start();
-    if (isset($_SESSION['username_admin'])){
-      $username = $_SESSION['username_admin'];  
-      $isLoggedIn = $_SESSION['isLoggedIn'];
+    if ($_SESSION['status_pegawai'] != 'admin') {
+      header('location:../login.php');
+    } else {    
   ?>
     <div class="container body">
       <div class="main_container">
@@ -119,7 +119,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <!-- <img src="images/img.jpg" alt=""> --><?php echo $_SESSION['username_admin']; ?>
+                    <!-- <img src="images/img.jpg" alt=""> --><?php echo $_SESSION['username']; ?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -263,7 +263,5 @@
     <!-- Flot -->
    
   </body>
-  <?php }else{
-  header("location:v_login.php");
-  } ?>
+  <?php } ?>
 </html>

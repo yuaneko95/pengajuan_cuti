@@ -32,9 +32,9 @@
  <?php 
     session_start();
     include 'admin/koneksi.php';
-    if (isset($_SESSION['username'])){
-      $username = $_SESSION['username'];  
-      $isLoggedIn = $_SESSION['isLoggedIn'];
+    if ($_SESSION['status_pegawai'] != 'pegawai') {
+      header('location:login.php');
+    } else {
   ?>
     <div class="container body">
       <div class="main_container">
@@ -526,7 +526,5 @@
     </script>
     <!-- /gauge.js -->
   </body>
-  <?php }else{
-  header("location:login.php");
-  } ?>
+  <?php }?>
 </html>
