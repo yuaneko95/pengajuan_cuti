@@ -67,17 +67,15 @@
                         <th>ALAMAT PEGAWAI</th>
                         <th>TELPON PEGAWAI</th>
                         <th>FOTO</th>
-                        <th>USERNAME</th>
-                        <th>PASSWORD</th>
                         <th>JATAH CUTI</th>
-                        <th>ACTION</th>
+                        <th colspan="2"><center>ACTION</center></th>
                       </tr>  
                       <?php 
                           $no=0; 
                           $limit = 4;  
                           if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; };  
                           $start_from = ($page-1) * $limit; 
-                          $sql = "SELECT * FROM pegawai LIMIT $start_from, $limit";
+                          $sql = "SELECT id_pegawai,nama_pegawai,jabatan,jenis_kelamin,email,alamat_pegawai,telpon_pegawai,foto,jatah_cuti FROM pegawai INNER JOIN jabatan ON jabatan.id_jabatan = pegawai.id_jabatan LIMIT $start_from, $limit";
                           $s = mysqli_query($conn, $sql) or die (mysqli_error($conn));
                           while ($tmp = mysqli_fetch_assoc($s)) {  
                             $no++
@@ -86,18 +84,18 @@
                           <!-- <td><?php echo $no; ?></td> -->
                           <td><?php echo $tmp['id_pegawai']; ?></td>
                           <td><?php echo $tmp['nama_pegawai']; ?></td>
-                          <td><?php echo $tmp['id_jabatan']; ?></td>
+                          <td><?php echo $tmp['jabatan']; ?></td>
                           <td><?php echo $tmp['jenis_kelamin']; ?></td>
                           <td><?php echo $tmp['email']; ?></td>
                           <td><?php echo $tmp['alamat_pegawai']; ?></td>
                           <td><?php echo $tmp['telpon_pegawai']; ?></td>
                           <td><img src="<?php echo'img/'.$tmp['foto']; ?>" alt="" style="width: 40px; height: 60px;"></td>
-                          <td><?php echo $tmp['username']; ?></td>
-                          <td><?php echo $tmp['password']; ?></td>
                           <td><?php echo $tmp['jatah_cuti']; ?></td>
                           <td>
                             <a href="edit_pegawai.php?&id_pegawai=<?php echo $tmp['id_pegawai']; ?>" class="btn btn-xs btn-warning" ><i class="glyphicon glyphicon-pencil"></i> edit</a>
-                           <a href="#" class="btn btn-xs btn-danger" onclick="confirmdel('proses/hapus_pegawai.php?&id_pegawai=<?php echo $tmp['id_pegawai']; ?>');"><i class="glyphicon glyphicon-trash"></i> hapus</a>
+                          </td>
+                          <td>
+                            <a href="#" class="btn btn-xs btn-danger" onclick="confirmdel('proses/hapus_pegawai.php?&id_pegawai=<?php echo $tmp['id_pegawai']; ?>');"><i class="glyphicon glyphicon-trash"></i> hapus</a>
                           </td>
                       </tr>
                       <?php  }

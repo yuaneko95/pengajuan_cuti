@@ -23,7 +23,7 @@
 						$status_pegawai = $_POST['status_pegawai']; 
 						
 					$query = mysqli_query($conn, "SELECT * FROM pegawai WHERE username='$username' AND password='$password'");
-					var_dump($query);
+					
 					if(mysqli_num_rows($query) == 0){
 						echo '<div class="alert alert-danger">Upss...!!! Login gagal.</div>';
 						} else {
@@ -40,7 +40,7 @@
 								$_SESSION['status_pegawai'] = 'pegawai';
 								header('location:index.php');
 							} else {
-								echo '<div class="alert alert-danger">Upss...!!! sorry</div>';
+								echo '<div class="alert alert-danger">Upss...!!! sorry username dan password tidak cocok</div>';
 							}
 						}
 					}
