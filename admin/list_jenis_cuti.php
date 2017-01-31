@@ -94,7 +94,7 @@
                         </div>
 
                         <div class="modal-body">
-                            <form action="../proses/tambah_jenis_cuti.php" name="modal_popup" enctype="multipart/form-data" method="POST">  
+                            <form action="proses/tambah_jenis_cuti.php" name="modal_popup" enctype="multipart/form-data" method="POST">  
                                 <div class="form-group" style="padding-bottom: 20px;">
                                   <label for="jenis cuti">JENIS CUTI</label>
                                   <input type="text" name="nama_cuti"  class="form-control" placeholder="jenis cuti" required/>

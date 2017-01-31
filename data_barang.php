@@ -72,7 +72,7 @@
                       </tr>  
                       <?php $no=0; 
                           $id_pegawai = $_SESSION['id_pegawai'];
-                          $sql = "SELECT id_pbarang,kategori,nama_barang ,tgl_pengajuan,berkas ,alasan 
+                          $sql = "SELECT id_pbarang,status,kategori,nama_barang ,tgl_pengajuan,berkas ,alasan 
                                   FROM pengadaan_barang
                                   INNER JOIN pegawai ON pegawai.id_pegawai = pengadaan_barang.id_pegawai
                                   INNER JOIN kategori_barang ON kategori_barang.id_kategori=pengadaan_barang.id_kategori
@@ -88,7 +88,7 @@
                           <td><?php echo $tmp['nama_barang'] ?></td>
                           <td><?php echo $tmp['berkas']; ?></td>
                           <td><?php echo $tmp['alasan']; ?></td>
-                          <td></td>
+                          <td><?php echo $tmp['status']; ?></td>
                           <td>
                             <a href="cetak_cuti.php?&id_pcuti=<?php echo $tmp['id_pcuti']; ?>" class="btn btn-xs btn-success"><i class="glyphicon glyphicon-print"></i> cetak</a>
                           </td>

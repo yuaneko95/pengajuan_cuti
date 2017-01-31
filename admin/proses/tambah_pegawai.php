@@ -10,7 +10,7 @@
 	$telpon_pegawai = $_POST['telpon_pegawai'];
 	$username = $_POST['username'];
 	$password = $_POST['password'];
-	$jatah_cuti = $_POST['jatah_cuti'];
+
 	$nama_folder="../img/";
 
 	$jenis_gambar=$_FILES["foto"]["type"];
@@ -31,7 +31,7 @@
 			} else { die("Jenis gambar yang anda kirim salah. Harus .jpg .gif .png"); 
 		}
 
-	$sql = "INSERT INTO pegawai VALUES('$id_pegawai','$nama_pegawai','$id_jabatan','$jenis_kelamin','$email','$alamat_pegawai','$telpon_pegawai','$foto','$username','$password','$jatah_cuti')";
+	$sql = "INSERT INTO pegawai VALUES('$id_pegawai','$nama_pegawai','$id_jabatan','$jenis_kelamin','$email','$alamat_pegawai','$telpon_pegawai','$foto','$username','$password','')";
  	$s = mysqli_query($conn, $sql) or die (mysqli_error($conn));
 	if ($s) {
 		echo "<script>Alert('DATA BERHASIL DI TAMBAH :-)') location.replace('index.php')</script>";

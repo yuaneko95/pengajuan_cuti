@@ -88,7 +88,7 @@
                               <input type="radio" name="jenis_kelamin" value="laki-laki"> &nbsp; laki-laki &nbsp;
                             </label>
                             <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                              <input type="radio" name="jenis_kelamin" value="peremapuan"> peremapuan
+                              <input type="radio" name="jenis_kelamin" value="perempuan"> perempuan
                             </label>
                           </div>
                         </div>

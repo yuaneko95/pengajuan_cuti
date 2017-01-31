@@ -53,42 +53,7 @@
                     </ul>
                     <div class="clearfix"></div>
                   </div>
-                  <div class="col-md-2 col-sm-3 col-xs-3">
-                    <form action="" method="post" accept-charset="utf-8">
-                    <h5>view by month</h5>
-                    <select name="bulan" class="form-control">
-                        <option value="01">Januari</option>
-                        <option value="02">Februari</option>
-                        <option value="03">Maret</option>
-                        <option value="04">April</option>
-                        <option value="05">Mei</option>
-                        <option value="06">Juni</option>
-                        <option value="07">Juli</option>
-                        <option value="08">Agustus</option>
-                        <option value="09">September</option>
-                        <option value="10">Oktober</option>
-                        <option value="12">November</option>
-                        <option value="12">Desember</option>
-                      </select>
-                    </div>
-                    <div class="col-md-2 col-sm-3 col-xs-3">
-                    <h5>View By Tahun </h5>
-                    <select name="tahun" class="form-control">
-                    <?php
-                      $mulai= date('Y') - 50;
-                      for($i = $mulai;$i<$mulai + 100;$i++){
-                        $sel = $i == date('Y') ? ' selected="selected"' : '';
-                        echo '<option value="'.$i.'"'.$sel.'>'.$i.'</option>';
 
-                        $bulan = $_POST['bulan'];
-                        $tahun = $_POST['tahun'];
-                        $sql = "select * from permohonan_cuti where month(tgl_mulai_cuti)='$bulan' and year(tgl_mulai_cuti) = '$tahun'";
-                        $s = mysqli_query($conn, $sql) or die (mysqli_error($conn));
-                      }
-                    ?>
-                    </select>
-                    </form>
-                    </div>
                   <div class="x_content">
                     <div class="table-responsive">
                       <table class="table table-bordered" >
@@ -123,16 +88,16 @@
                           <td><?php echo $tmp['tgl_akhir_cuti']; ?></td>
                           <td><?php echo $tmp['alasan']; ?></td>
                           <td><?php echo $tmp['status']; ?></td>
-                        
+                          
                           <td align="center">
-                            <a href="#" class="btn btn-xs btn-success open_modal <?=$tmp['status'] != 'disetujui' && $tmp['status'] != 'ditolak' ? '' : 'disabled'?>" id="<?php echo $tmp['id_pcuti'];?> "><i class="glyphicon glyphicon-check " ></i> setujui</a>
+                            <a href="#" class="btn btn-xs btn-success open_modal <?=$tmp['status'] != 'disetujui' && $tmp['status'] != 'ditolak' ? '' : 'disabled'?>" id="<?php echo $tmp['id_pcuti'];?>"><i class="glyphicon glyphicon-check"></i> setujui</a>
                           </td>
                           <td align="center">
-                            <a href="#" class="btn btn-xs btn-danger open_jon <?=$tmp['status'] != 'disetujui' && $tmp['status'] != 'ditolak' ? '' : 'disabled'?>" id="<?php echo $tmp['id_pcuti'];?>"><i class="glyphicon glyphicon-remove" ></i> Tolak</a>
+                            <a href="#" class="btn btn-xs btn-danger open_jon <?=$tmp['status'] != 'disetujui' && $tmp['status'] != 'ditolak' ? '' : 'disabled'?>" id="<?php echo $tmp['id_pcuti'];?>"><i class="glyphicon glyphicon-remove"></i> Tolak</a>
                           </td>
-
+                          
                       </tr>
-                      <?php } ?>
+                      <?php  } ?>
                     </table>
 
                     </div>
@@ -238,7 +203,7 @@
           });
         });
     </script>
-      
+    <!-- Flot -->
     
   </body>
 </html>

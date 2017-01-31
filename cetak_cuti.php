@@ -28,7 +28,7 @@
                     <?php  
                         include 'admin/koneksi.php';
                         $id_pcuti=$_GET['id_pcuti'];
-                        $sql = "SELECT permohonan_cuti.id_pcuti,pegawai.nama_pegawai, jabatan.jabatan ,jenis_cuti.nama_cuti, permohonan_cuti.tgl_pengajuan ,permohonan_cuti.lama_cuti, permohonan_cuti.tgl_mulai_cuti, permohonan_cuti.tgl_akhir_cuti, permohonan_cuti.alasan, permohonan_cuti.tgl_sah 
+                        $sql = "SELECT permohonan_cuti.id_pcuti,pegawai.nama_pegawai, jabatan.jabatan ,jenis_cuti.nama_cuti, permohonan_cuti.tgl_pengajuan ,permohonan_cuti.lama_cuti, permohonan_cuti.tgl_mulai_cuti, permohonan_cuti.tgl_akhir_cuti, permohonan_cuti.alasan 
                           FROM pegawai, permohonan_cuti, jabatan, jenis_cuti
                           WHERE pegawai.id_pegawai = permohonan_cuti.id_pegawai
                           AND pegawai.id_jabatan= jabatan.id_jabatan
@@ -73,19 +73,6 @@
                           <td style="padding-left: 10px"><?php echo $temp['alasan']; ?></td>
                         </tr>
                       </table>
-
-                           <table>
-                             <tr>
-                               <td style="padding-top: 100px; padding-left: 100px;">SURABAYA, <?php echo date("d-m-Y"); ?></td>
-                             </tr>
-                             <tr>
-                               <td style="padding-left: 100px">Yang Mengajukan Cuti</td>
-                             </tr>
-                             <tr>
-                               <td style="padding-left: 150px; padding-top: 100px"><?php echo $temp['nama_pegawai']; ?></td>
-                             </tr>
-                           </table>
-                         
                <!--    </div>
                   </div> -->
                 <!-- </div>
@@ -95,9 +82,9 @@
 
      </div>
    </div> -->
-    <script src="vendors/jquery/dist/jquery.min.js"></script>
+    <!-- <script src="vendors/jquery/dist/jquery.min.js"></script> -->
     <!-- Bootstrap -->
-    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script> -->
     <!-- FastClick -->
     <!-- <script src="vendors/fastclick/lib/fastclick.js"></script> -->
     <!-- NProgress -->

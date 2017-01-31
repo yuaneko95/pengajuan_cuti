@@ -10,7 +10,7 @@
 	$telpon_pegawai = $_POST['telpon_pegawai'];
 	$username = $_POST['username'];
 	$password = $_POST['password'];
-	$jatah_cuti = $_POST['jatah_cuti'];
+
 	$nama_folder="../img/";
 
 	$jenis_gambar=$_FILES["foto"]["type"];
@@ -31,7 +31,7 @@
 			} else { die("Jenis gambar yang anda kirim salah. Harus .jpg .gif .png"); 
 		}
 
-	$sql = "UPDATE pegawai SET id_pegawai = '$id_pegawai', nama_pegawai = '$nama_pegawai', id_jabatan = '$id_jabatan', jenis_kelamin = '$jenis_kelamin', email = '$email', alamat_pegawai = '$alamat_pegawai', telpon_pegawai = '$telpon_pegawai', foto = '$foto', username = '$username', password = '$password', jatah_cuti = '$jatah_cuti' WHERE id_pegawai = '$id_pegawai'";
+	$sql = "UPDATE pegawai SET id_pegawai = '$id_pegawai', nama_pegawai = '$nama_pegawai', id_jabatan = '$id_jabatan', jenis_kelamin = '$jenis_kelamin', email = '$email', alamat_pegawai = '$alamat_pegawai', telpon_pegawai = '$telpon_pegawai', foto = '$foto', username = '$username', password = '$password' WHERE id_pegawai = '$id_pegawai'";
 
 	$s = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 	header("location:../list_pegawai.php");

@@ -12,21 +12,19 @@ if(!empty($_POST)){
     #echo $sql."<br />";
     $query = mysqli_query($conn, $sql) or die (mysqli_error());
     // pengecekan query valid atau tidak
-    while ($s = mysqli_fetch_assoc($query)) {
-        if($query){
-            $row = mysqli_num_rows($query);
-             
-            // jika $row > 0 atau username dan password ditemukan
-            if($row > 0){
-                $_SESSION['isLoggedIn']=1;
-                $_SESSION['username_admin']=$username_admin;
-                $_SESSION['id_admin'] = $s['id_admin'];
-                header('Location: ../index.php');
-            }else{
-                echo "username atau password salah";
-            }
+    if($query){
+        $row = mysqli_num_rows($query);
+         
+        // jika $row > 0 atau username dan password ditemukan
+        if($row > 0){
+            $_SESSION['isLoggedIn']=1;
+            $_SESSION['username_admin']=$username_admin;
+            header('Location: ../index.php');
+        }else{
+            echo "username atau password salah";
         }
-    }    
+    }
+
 }
 
 ?>
