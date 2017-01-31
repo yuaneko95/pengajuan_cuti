@@ -125,10 +125,10 @@
                           <td><?php echo $tmp['status']; ?></td>
                         
                           <td align="center">
-                            <a href="#" class="btn btn-xs btn-success open_modal" id="<?php echo $tmp['id_pcuti'];?> "><i class="glyphicon glyphicon-check " ></i> setujui</a>
+                            <a href="#" class="btn btn-xs btn-success open_modal <?=$tmp['status'] != 'disetujui' && $tmp['status'] != 'ditolak' ? '' : 'disabled'?>" id="<?php echo $tmp['id_pcuti'];?> "><i class="glyphicon glyphicon-check " ></i> setujui</a>
                           </td>
                           <td align="center">
-                            <a href="#" class="btn btn-xs btn-danger open_jon" id="<?php echo $tmp['id_pcuti'];?>"><i class="glyphicon glyphicon-remove" ></i> Tolak</a>
+                            <a href="#" class="btn btn-xs btn-danger open_jon <?=$tmp['status'] != 'disetujui' && $tmp['status'] != 'ditolak' ? '' : 'disabled'?>" id="<?php echo $tmp['id_pcuti'];?>"><i class="glyphicon glyphicon-remove" ></i> Tolak</a>
                           </td>
 
                       </tr>
