@@ -79,10 +79,10 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <div id="gender" class="btn-group" data-toggle="buttons">
                             <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                              <input type="radio" name="jenis_kelamin" value="laki-laki"> &nbsp; laki-laki &nbsp;
+                              <input type="radio" name="jenis_kelamin" value="Laki-Laki"> &nbsp; Laki-laki &nbsp;
                             </label>
                             <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                              <input type="radio" name="jenis_kelamin" value="perempuan"> perempuan
+                              <input type="radio" name="jenis_kelamin" value="Perempuan"> Perempuan
                             </label>
                           </div>
                         </div>

@@ -71,9 +71,9 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select name="id_jabatan" class="form-control">
                           <?php  
-                             $sql = "SELECT * FROM jabatan";
-                             $s = mysqli_query($conn, $sql) or die (mysqli_error($conn));
-                             while ($tmp = mysqli_fetch_assoc($s)) {
+                            $sql = "SELECT * FROM jabatan";
+                            $s = mysqli_query($conn, $sql) or die (mysqli_error($conn));
+                            while ($tmp = mysqli_fetch_assoc($s)) {
                           ?>
                             <option value="<?php echo $tmp['id_jabatan']; ?>"><?php echo $tmp['jabatan']; ?></option>
                             <?php } ?>
@@ -85,10 +85,10 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <div id="gender" class="btn-group" data-toggle="buttons">
                             <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                              <input type="radio" name="jenis_kelamin" value="laki-laki"> &nbsp; laki-laki &nbsp;
+                              <input type="radio" name="jenis_kelamin" value="Laki-Laki" <?php if ($temp['jenis_kelamin']=='Laki-Laki') {echo 'checked';} ?> /> &nbsp; Laki-laki &nbsp;
                             </label>
                             <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                              <input type="radio" name="jenis_kelamin" value="perempuan"> perempuan
+                              <input type="radio" name="jenis_kelamin" value="Perempuan" <?php if ($temp['jenis_kelamin']=='Perempuan') {echo 'checked';} ?>/> Perempuan
                             </label>
                           </div>
                         </div>
