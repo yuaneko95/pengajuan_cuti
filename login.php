@@ -16,33 +16,38 @@
 				<div class="panel-body">
 				<?php  
 					session_start();
+					
 					include 'admin/koneksi.php';
 					if (isset($_POST['login'])) {
 						$username = $_POST['username'];
-						$password = $_POST['password'];
+						$userpass = $_POST['password'];
 						$status_pegawai = $_POST['status_pegawai']; 
 						
-					$query = mysqli_query($conn, "SELECT * FROM pegawai WHERE username='$username' AND password = '$password'");
-						if(mysqli_num_rows($query) === 1){
-								$row = mysqli_fetch_assoc($query);
-								
-                                     if ($row['status_pegawai'] == admin && $status_pegawai == admin) {
+						$query = mysqli_query($conn, "SELECT * FROM pegawai WHERE username='$username'");
+						
+						if (mysqli_num_rows($query) > 0) {
+							$data = mysqli_fetch_assoc($query);
+							if (password_verify($userpass, $data['password'])) {
+									   if ($data['status_pegawai'] == admin && $status_pegawai == admin) {
                                         $_SESSION['username'] =  $username;
-                                        $_SESSION['id_pegawai'] = $row['id_pegawai'];
+                                        $_SESSION['id_pegawai'] = $data['id_pegawai'];
                                         $_SESSION['status_pegawai'] = 'admin';
                                         header('location:admin/index.php');
-                                    } elseif ($row['status_pegawai'] == pegawai && $status_pegawai == pegawai) {
+                                    } elseif ($data['status_pegawai'] == pegawai && $status_pegawai == pegawai) {
                                         $_SESSION['username'] =  $username;
-                                        $_SESSION['id_pegawai'] = $row['id_pegawai'];
+                                        $_SESSION['id_pegawai'] = $data['id_pegawai'];
                                         $_SESSION['status_pegawai'] = 'pegawai';
                                         header('location:index.php');
                                     } else {
                                         echo '<div class="alert alert-danger">Upss...!!! sorry username dan password tidak cocok</div>';
                                     }
-                                
-						}
-					}	
-					?>
+							} else {
+								echo "username tidak dikenali";
+							}
+						
+						}	
+					}
+				?>
 					<form role="form" action="" method="POST">
 						<fieldset>
 							<div class="form-group">
