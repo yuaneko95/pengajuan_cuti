@@ -22,7 +22,7 @@
 						$password = $_POST['password'];
 						$status_pegawai = $_POST['status_pegawai']; 
 						
-					$query = mysqli_query($conn, "SELECT * FROM pegawai WHERE username='$username'");
+					$query = mysqli_query($conn, "SELECT * FROM pegawai WHERE username='$username' AND password = '$password'");
 						if(mysqli_num_rows($query) === 1){
 								$row = mysqli_fetch_assoc($query);
 								

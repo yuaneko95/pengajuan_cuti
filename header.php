@@ -135,7 +135,7 @@
                         <span>Settings</span>
                       </a>
                     </li>
-                    <li><a href="javascript:;">Help</a></li>
+                    <li><a href="ubah_password.php?&id_pegawai=<?php echo $_SESSION['id_pegawai']; ?>">Ganti Password</a></li>
                     <li><a href="proses/logout.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
