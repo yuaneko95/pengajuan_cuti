@@ -67,6 +67,19 @@
                         </div>
                       </div>
                       <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">STATUS</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <div id="gender" class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                              <input type="radio" name="status_pegawai" value="admin" <?php if ($temp['status_pegawai']=='admin') {echo 'checked';} ?> /> &nbsp; Admin &nbsp;
+                            </label>
+                            <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                              <input type="radio" name="status_pegawai" value="pegawai" <?php if ($temp['status_pegawai']=='pegawai') {echo 'checked';} ?>/> Pegawai
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">JABATAN</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select name="id_jabatan" class="form-control">
@@ -75,7 +88,7 @@
                             $s = mysqli_query($conn, $sql) or die (mysqli_error($conn));
                             while ($tmp = mysqli_fetch_assoc($s)) {
                           ?>
-                            <option value="<?php echo $tmp['id_jabatan']; ?>"><?php echo $tmp['jabatan']; ?></option>
+                            <option value="<?php echo $tmp['id_jabatan']; ?>" <?=$temp['id_jabatan'] == $tmp['id_jabatan'] ?'selected' : ''?>><?php echo $tmp['jabatan']; ?></option>
                             <?php } ?>
                           </select>
                         </div>
@@ -121,18 +134,6 @@
                           <img id="image-preview" class="form-control" style="width: 200px; height: 200px;" src="<?php echo'img/'.$temp['foto']; ?>">
                         </div>
                       </div>
-                      <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">USERNAME</label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input class="form-control col-md-7 col-xs-12" type="text" name="username" value="<?php echo $temp['username']; ?>">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">PASSWORD</label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input class="form-control col-md-7 col-xs-12" type="password" name="password" value="<?php echo $temp['password']; ?>">
-                        </div>
-                      </div>
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
@@ -141,16 +142,45 @@
                           <button type="submit" class="btn btn-success">Submit</button>
                         </div>
                       </div>
-
                     </form>
                   </div>
                 </div>
               </div>
             </div>
-
-
      </div>
    </div>
+
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel">
+        <div class="x_title">
+          <h2>Form Ganti Password</h2>
+          <ul class="nav navbar-right panel_toolbox">
+          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+          </ul>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <form action="proses/edit_pass.php" method="POST" class="form-horizontal form-label-left" accept-charset="utf-8">
+            <div class="form-group">
+              <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Password</label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <input class="form-control col-md-7 col-xs-12" type="hidden" name="id_pegawai" value="<?php echo $temp['id_pegawai']; ?>">
+                <input class="form-control col-md-7 col-xs-12" type="text" name="password" value="<?php echo $temp['password']; ?>">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                <a href="list_pegawai.php">
+                <button type="button" class="btn btn-primary">Cancel</button>
+                <button type="submit" class="btn btn-success">Submit</button>
+              </div>
+            </div>
+          </form>           
+        </div>
+      </div>
+  </div>     
+  </div>
   <script src="vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
     <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
