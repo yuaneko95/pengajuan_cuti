@@ -76,13 +76,6 @@
                       <li><a href="data_cuti.php" title="">Data Cuti</a></li>
                     </ul>
                   </li>
-                  
-                  <li><a><i class="fa fa-file"></i>Laporan <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="fixed_sidebar.html">Laporan Cuti</a></li>
-                      <li><a href="fixed_footer.html">Laporan Pengadaan Barang</a></li>
-                    </ul>
-                  </li>
                 </ul>
               </div>
               
