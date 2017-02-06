@@ -23,10 +23,10 @@
 					<form role="form" action="proses/changepassword.php" method="POST">
 						<fieldset>
 							<div class="form-group">
-								<input class="form-control" placeholder="EMAIL ANDA" name="email" type="email" value="">
+								<input class="form-control" placeholder="EMAIL ANDA" name="email" type="email" value="<?php echo $temp['email']; ?>">
 							</div>
 							<div class="form-group">
-								<input class="form-control" placeholder="PASSWORD LAMA" name="passwordlama" type="password" value="">
+								<input class="form-control" placeholder="PASSWORD LAMA" name="passwordlama" type="password" value="<?php echo $temp['password'] ?>">
 							</div>
 							<div class="form-group">
 								<input class="form-control" placeholder="PASSWORD BARU" name="passwordbaru" type="password" value="">

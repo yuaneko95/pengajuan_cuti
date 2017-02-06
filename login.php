@@ -5,11 +5,12 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="vendors/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="vendors/animate/animate.min.css">
 	<link rel="stylesheet" type="text/css" href="vendors/bootstrap/dist/css/styles.css">
 </head>
 <body>
 	
-	<div class="row">
+	<div class="row animated zoomIn">
 		<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
 			<div class="login-panel panel panel-default">
 				<div class="panel-heading">Log in</div>

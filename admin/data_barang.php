@@ -66,7 +66,7 @@
                         <th><strong>NAMA BARANG</strong></th>
                         <th><strong>BERKAS</strong></th>
                         
-                        <th><strong>ALASAN CUTI</strong></th>
+                        <th><strong>ALASAN</strong></th>
                         <th><strong>STATUS</strong></th>
                         <th colspan="2"><center>ACTION</center></th>
                       </tr>  

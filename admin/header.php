@@ -40,7 +40,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><img src="img/gnfi_logo.png" style="width: 30px; height: 30px; padding-left: 5px;" alt=""> <span>GNFI Dashboard</span></a>
+              <a href="index.php" class="site_title"><img src="img/gnfi_logo.png" style="width: 30px; height: 30px; padding-left: 5px;" alt=""> <span>GNFI Dashboard</span></a>
             </div>
 
             <div class="clearfix"></div>

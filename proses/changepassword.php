@@ -23,5 +23,5 @@
 			echo "<script>Alert('GAGAL UBAH PASSWORD')</script>";
 		}
 	}
-	
+	header("location:../index.php");
 ?>
