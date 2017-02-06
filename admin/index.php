@@ -89,7 +89,7 @@
                         <th><strong>AKHIR CUTI</strong></th>
                         <th><strong>ALASAN CUTI</strong></th>
                         <th><strong>STATUS</strong></th>
-                        <th>ACTION</th>
+                        <th colspan="2"><center>ACTION</center></th>
                       </tr>  
                       <?php $no=0; 
                           $id_pegawai = $_SESSION['id_pegawai'];
@@ -97,7 +97,7 @@
                                   FROM permohonan_cuti
                                   INNER JOIN pegawai ON pegawai.id_pegawai = permohonan_cuti.id_pegawai
                                   
-                                  WHERE pegawai.id_pegawai = '$id_pegawai' AND status = 'Belum dikonfirmasi'";
+                                  WHERE status = 'Belum dikonfirmasi'";
                           $s = mysqli_query($conn, $sql) or die (mysqli_error($conn));
                           if (empty($s)) {
                             echo 'data kosong';
@@ -115,11 +115,11 @@
                           <td><?php echo $tmp['tgl_akhir_cuti']; ?></td>
                           <td><?php echo $tmp['alasan']; ?></td>
                           <td><?php echo $tmp['status']; ?></td>
-                          <td>
-                             <td align="center">
+                          <td align="center">
                             <a href="#" class="btn btn-xs btn-success open_modal <?=$tmp['status'] != 'disetujui' && $tmp['status'] != 'ditolak' ? '' : 'disabled'?>" id="<?php echo $tmp['id_pcuti'];?>"><i class="glyphicon glyphicon-check"></i> setujui</a>
-                            <a href="#" class="btn btn-xs btn-danger open_jon <?=$tmp['status'] != 'disetujui' && $tmp['status'] != 'ditolak' ? '' : 'disabled'?>" id="<?php echo $tmp['id_pcuti'];?>"><i class="glyphicon glyphicon-remove"></i> Tolak</a>
                           </td>
+                          <td align="center">
+                            <a href="#" class="btn btn-xs btn-danger open_jon <?=$tmp['status'] != 'disetujui' && $tmp['status'] != 'ditolak' ? '' : 'disabled'?>" id="<?php echo $tmp['id_pcuti'];?>"><i class="glyphicon glyphicon-remove"></i> Tolak</a>
                           </td>
                       </tr>
                       <?php 
