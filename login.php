@@ -32,11 +32,13 @@
 									   if ($data['status_pegawai'] == admin && $status_pegawai == admin) {
                                         $_SESSION['username'] =  $username;
                                         $_SESSION['id_pegawai'] = $data['id_pegawai'];
+                                        $_SESSION['foto'] = $data['foto'];
                                         $_SESSION['status_pegawai'] = 'admin';
                                         header('location:admin/index.php');
                                     } elseif ($data['status_pegawai'] == pegawai && $status_pegawai == pegawai) {
                                         $_SESSION['username'] =  $username;
                                         $_SESSION['id_pegawai'] = $data['id_pegawai'];
+                                        $_SESSION['foto'] = $data['foto'];
                                         $_SESSION['status_pegawai'] = 'pegawai';
                                         header('location:index.php');
                                     } else {

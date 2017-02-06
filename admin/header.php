@@ -31,6 +31,7 @@
   <body class="nav-md">
  <?php 
     session_start();
+    include 'koneksi.php';
     if ($_SESSION['status_pegawai'] != 'admin') {
       header('location:../login.php');
     } else {    
@@ -47,13 +48,20 @@
 
             <!-- menu profile quick info -->
             <div class="profile clearfix">
-              <!-- <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
-              </div> -->
-              <!-- <div class="profile_info" style="padding-left: 30px">
+              <div class="profile_pic">
+              <?php  
+               $id_pegawai = $_SESSION['id_pegawai'];
+               $sql = mysqli_query($conn,"SELECT * FROM pegawai WHERE id_pegawai = '$id_pegawai'") or die(mysqli_error($conn));
+               while ($b = mysqli_fetch_assoc($sql)) {
+              ?>
+                <img src="<?php echo"img/".$b['foto']; ?>" alt="..." class="img-circle profile_img">
+                <?php } ?>
+              </div>
+
+              <div class="profile_info" style="padding-left: 30px">
                 <span><h3>Welcome,</h3></span>
-                <h2><?php echo $_SESSION['username_admin']; ?></h2>
-              </div> -->
+                <h2><?php echo $_SESSION['username']; ?></h2>
+              </div>
             </div>
             <!-- /menu profile quick info -->
 
