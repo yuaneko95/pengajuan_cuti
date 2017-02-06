@@ -31,10 +31,7 @@
 							<div class="form-group">
 								<input class="form-control" placeholder="PASSWORD BARU" name="passwordbaru" type="password" value="">
 							</div>
-							<div class="form-group">
-								<input class="form-control" placeholder="KONFIRMASI PASSWORD" name="konfirmasipassword" type="password" value="">
-							</div>
-							<div class="form-group">
+							
 						<input type="submit"  class="btn btn-primary btn-block" value="UBAH PASSWORD" />
 						</fieldset>
 					</form>

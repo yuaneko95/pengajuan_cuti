@@ -6,7 +6,6 @@
 	$passwordlama = $_POST['passwordlama'];
 	$passwordbaru = $_POST['passwordbaru'];
 	$hash = password_hash("$passwordbaru", PASSWORD_DEFAULT, $option);
-	$konfirmasipassword = $_POST['konfirmasipassword'];
 	$email = $_POST['email'];
 	$cekuser = "select * from pegawai where email ='$email' and password ='$passwordlama'";
 	$querycekuser = mysqli_query($conn,$cekuser);
@@ -23,5 +22,6 @@
 			echo "<script>Alert('GAGAL UBAH PASSWORD')</script>";
 		}
 	}
-	header("location:../index.php");
+	
 ?>
+<meta http-equiv="refresh" content="0;URL='../index.php'" />
