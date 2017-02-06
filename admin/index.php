@@ -82,21 +82,24 @@
                       <table class="table table-bordered" >
                       <tr>
                         <th><strong>NO</strong></th>
+                        <th><strong>NAMA PEGAWAI</strong></th>
                         <!-- <th><strong>JENIS CUTI</strong></th> -->
                         <th><strong>TGL PENGAJUAN</strong></th>
                         <!-- <th><strong>LAMA CUTI</strong></th> -->
                         <th><strong>MULAI CUTI</strong></th>
                         <th><strong>AKHIR CUTI</strong></th>
                         <th><strong>ALASAN CUTI</strong></th>
+                        <th><strong>JENIS CUTI</strong></th>
+                        <th><strong>JATAH CUTI</strong></th>
                         <th><strong>STATUS</strong></th>
                         <th colspan="2"><center>ACTION</center></th>
                       </tr>  
                       <?php $no=0; 
                           $id_pegawai = $_SESSION['id_pegawai'];
-                          $sql = "SELECT id_pcuti,status, tgl_pengajuan, tgl_mulai_cuti,tgl_akhir_cuti, alasan 
+                          $sql = "SELECT id_pcuti,nama_pegawai, nama_cuti, tgl_pengajuan, lama_cuti,status, tgl_mulai_cuti,tgl_akhir_cuti, alasan , jatah_cuti
                                   FROM permohonan_cuti
                                   INNER JOIN pegawai ON pegawai.id_pegawai = permohonan_cuti.id_pegawai
-                                  
+                                  INNER JOIN jenis_cuti ON jenis_cuti.id_jcuti = permohonan_cuti.id_jcuti
                                   WHERE status = 'Belum dikonfirmasi'";
                           $s = mysqli_query($conn, $sql) or die (mysqli_error($conn));
                           if (empty($s)) {
@@ -108,12 +111,15 @@
                       ?>
                       <tr>
                           <td><?php echo $no; ?></td>
+                          <td><?php echo $tmp['nama_pegawai']; ?></td>
                           <!-- <td><?php echo $tmp['nama_cuti']; ?></td> -->
                           <td><?php echo $tmp['tgl_pengajuan']; ?></td>
                           <!-- <td><?php echo $tmp['lama_cuti']; ?></td> -->
                           <td><?php echo $tmp['tgl_mulai_cuti']; ?></td>
                           <td><?php echo $tmp['tgl_akhir_cuti']; ?></td>
                           <td><?php echo $tmp['alasan']; ?></td>
+                          <td><?php echo $tmp['nama_cuti']; ?></td>
+                          <td><?php echo $tmp['jatah_cuti']; ?></td>
                           <td><?php echo $tmp['status']; ?></td>
                           <td align="center">
                             <a href="#" class="btn btn-xs btn-success open_modal <?=$tmp['status'] != 'disetujui' && $tmp['status'] != 'ditolak' ? '' : 'disabled'?>" id="<?php echo $tmp['id_pcuti'];?>"><i class="glyphicon glyphicon-check"></i> setujui</a>
@@ -147,24 +153,24 @@
                       <table class="table table-bordered" >
                       <tr>
                         <th><strong>NO</strong></th>
+                        <th><strong>NAMA PEGAWAI</strong></th>
                         <!-- <th><strong>JENIS CUTI</strong></th> -->
                         <th><strong>TGL PENGAJUAN</strong></th>
                         <!-- <th><strong>LAMA CUTI</strong></th> -->
                         <th><strong>KATEGORI BARANG</strong></th>
                         <th><strong>NAMA BARANG</strong></th>
                         <th><strong>BERKAS</strong></th>
-                        
                         <th><strong>ALASAN CUTI</strong></th>
                         <th><strong>STATUS</strong></th>
-                        <th>ACTION</th>
+                        <th colspan="2"><center>ACTION</center></th>
                       </tr>  
                       <?php $no=0; 
                           $id_pegawai = $_SESSION['id_pegawai'];
-                          $sql = "SELECT id_pbarang,status,kategori,nama_barang ,tgl_pengajuan,berkas ,alasan 
+                          $sql = "SELECT id_pbarang,status,kategori,nama_barang ,tgl_pengajuan,berkas ,alasan, nama_pegawai 
                                   FROM pengadaan_barang
                                   INNER JOIN pegawai ON pegawai.id_pegawai = pengadaan_barang.id_pegawai
                                   INNER JOIN kategori_barang ON kategori_barang.id_kategori=pengadaan_barang.id_kategori
-                                  WHERE pengadaan_barang.id_pegawai = '$id_pegawai' AND status = 'belum dikonfirmasi'";
+                                  WHERE status = 'Belum dikonfirmasi'";
                           $s = mysqli_query($conn, $sql) or die (mysqli_error($conn));
                            if (empty($s)) {
                             echo 'data kosong';
@@ -175,6 +181,7 @@
                       ?>
                       <tr>
                           <td><?php echo $no; ?></td>
+                          <td><?php echo $tmp['nama_pegawai']; ?></td>
                           <td><?php echo $tmp['tgl_pengajuan']; ?></td>
                           <td><?php echo $tmp['kategori']; ?></td>
                           <td><?php echo $tmp['nama_barang'] ?></td>
@@ -182,8 +189,10 @@
                           <td><?php echo $tmp['alasan']; ?></td>
                           <td><?php echo $tmp['status']; ?></td>
                          <td align="center">
-                            <a href="#" class="btn btn-xs btn-success buka_modal <?=$tmp['status'] != 'disetujui' && $tmp['status'] != 'ditolak' ? '' : 'disabled'?>" id="<?php echo $tmp['id_pbarang'];?>"><i class="glyphicon glyphicon-check"></i> setujui</a>
-                            <a href="#" class="btn btn-xs btn-danger open <?=$tmp['status'] != 'disetujui' && $tmp['status'] != 'ditolak' ? '' : 'disabled'?>" id="<?php echo $tmp['id_pbarang'];?>"><i class="glyphicon glyphicon-remove"></i> Tolak</a>
+                            <a href="#" class="btn btn-xs btn-success open_modal <?=$tmp['status'] != 'disetujui' && $tmp['status'] != 'ditolak' ? '' : 'disabled'?>" id="<?php echo $tmp['id_pcuti'];?>"><i class="glyphicon glyphicon-check"></i> setujui</a>
+                          </td>
+                          <td align="center">
+                            <a href="#" class="btn btn-xs btn-danger open_jon <?=$tmp['status'] != 'disetujui' && $tmp['status'] != 'ditolak' ? '' : 'disabled'?>" id="<?php echo $tmp['id_pcuti'];?>"><i class="glyphicon glyphicon-remove"></i> Tolak</a>
                           </td>
                       </tr>
                       <?php 

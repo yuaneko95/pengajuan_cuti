@@ -40,7 +40,7 @@ if(isset($_POST['btnUpload'])){
 		//mulai memproses upload file
 		if(move_uploaded_file($_FILES['berkas']['tmp_name'], $folder.$file_name)){
 			//catat nama file ke database
-			$catat = mysqli_query($conn,'insert into pengadaan_barang values ("'.$id_pbarang.'", "'.$id_pegawai.'", "'.$id_kategori.'" ,"'.$nama_barang.'", "'.$tgl_pengajuan.'", "'.$file_name.'" ,"'.$alasan.'","belum dikonfirmasi","")') or die(mysqli_error($conn));
+			$catat = mysqli_query($conn,'insert into pengadaan_barang values ("'.$id_pbarang.'", "'.$id_pegawai.'", "'.$id_kategori.'" ,"'.$nama_barang.'", "'.$tgl_pengajuan.'", "'.$file_name.'" ,"'.$alasan.'","Belum dikonfirmasi","")') or die(mysqli_error($conn));
 			echo '<div id="msg">Berhasil mengupload file '.$file_name.'</div>';
 			header('location:../data_barang.php');
 		} else{

@@ -59,6 +59,7 @@
                         <th><strong>MULAI CUTI</strong></th>
                         <th><strong>AKHIR CUTI</strong></th>
                         <th><strong>ALASAN CUTI</strong></th>
+                        <th><strong>JENIS CUTI</strong></th>
                         <th><strong>JATAH CUTI</strong></th>
                         <th><strong>STATUS</strong></th>
                         <th colspan="2"><center>ACTION</center></th>
@@ -81,6 +82,7 @@
                           <td><?php echo $tmp['tgl_mulai_cuti']; ?></td>
                           <td><?php echo $tmp['tgl_akhir_cuti']; ?></td>
                           <td><?php echo $tmp['alasan']; ?></td>
+                          <td><?php echo $tmp['nama_cuti']; ?></td>
                           <td><?php echo $tmp['jatah_cuti']; ?></td>
                           <td><?php echo $tmp['status']; ?></td>
                           
