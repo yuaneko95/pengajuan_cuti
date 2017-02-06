@@ -50,12 +50,12 @@
             <div class="profile clearfix">
               <div class="profile_pic">
               <?php  
-              $id_pegawai = $_GET['id_pegawai'];
-              $sql = "SELECT * FROM pegawai WHERE id_pegawai='$id_pegawai'";
-              $s = mysqli_query($conn, $sql) or die (mysqli_error($conn));
-              $f = mysqli_fetch_assoc($s);
-            ?>
-               
+               $id_pegawai = $_SESSION['id_pegawai'];
+               $sql = mysqli_query($conn,"SELECT * FROM pegawai WHERE id_pegawai = '$id_pegawai'") or die(mysqli_error($conn));
+               while ($b = mysqli_fetch_assoc($sql)) {
+              ?>
+                <img src="<?php echo"admin/img/".$b['foto']; ?>" alt="..." class="img-circle profile_img">
+                <?php } ?>
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
