@@ -72,7 +72,7 @@
                 <ul class="nav side-menu">
                   <li><a href="index.php"><i class="fa fa-home"></i> Home </span></a>
                   </li>
-                  <li><a><i class="fa fa-table"></i> Master Data <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-tasks"></i> Master Data <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="ajukan_cuti.php" title="">Ajukan Cuti</a></li>
                       <li><a href="ajukan_barang.php" title="">Ajukan Barang</a></li>
