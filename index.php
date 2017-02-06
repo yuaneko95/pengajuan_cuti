@@ -84,8 +84,7 @@
               <div class="col-md-12 col-sm-9 col-xs-8">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>DATA CUTI <?php echo $_SESSION['username']; ?></h2>
-                   
+                    <h2><strong>Pengajuan Cuti Anda Yang Belum Dikonfirmasi</strong></h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -93,41 +92,44 @@
                       <table class="table table-bordered" >
                       <tr>
                         <th><strong>NO</strong></th>
+                        <th><strong>NAMA PEGAWAI</strong></th>
                         <!-- <th><strong>JENIS CUTI</strong></th> -->
                         <th><strong>TGL PENGAJUAN</strong></th>
                         <!-- <th><strong>LAMA CUTI</strong></th> -->
                         <th><strong>MULAI CUTI</strong></th>
                         <th><strong>AKHIR CUTI</strong></th>
                         <th><strong>ALASAN CUTI</strong></th>
+                        <th><strong>JENIS CUTI</strong></th>
+                        <th><strong>JATAH CUTI</strong></th>
                         <th><strong>STATUS</strong></th>
-                        <th>ACTION</th>
                       </tr>  
                       <?php $no=0; 
                           $id_pegawai = $_SESSION['id_pegawai'];
-                          $sql = "SELECT id_pcuti,status, tgl_pengajuan, tgl_mulai_cuti,tgl_akhir_cuti, alasan 
+                          $sql = "SELECT id_pcuti,nama_pegawai, nama_cuti, tgl_pengajuan, lama_cuti,status, tgl_mulai_cuti,tgl_akhir_cuti, alasan , jatah_cuti
                                   FROM permohonan_cuti
                                   INNER JOIN pegawai ON pegawai.id_pegawai = permohonan_cuti.id_pegawai
-                                  
-                                  WHERE pegawai.id_pegawai = '$id_pegawai' AND status = 'Belum dikonfirmasi'";
+                                  INNER JOIN jenis_cuti ON jenis_cuti.id_jcuti = permohonan_cuti.id_jcuti
+                                  WHERE permohonan_cuti.id_pegawai = '$id_pegawai' AND status = 'Belum dikonfirmasi'";
                           $s = mysqli_query($conn, $sql) or die (mysqli_error($conn));
-                          if (mysqli_fetch_row($s) == 0) {
-                              echo '<tr><td colspan="7" rowspan="" headers="">Pengajuan Cuti Sudah Disetujui</td></tr>';
+                          if (empty($s)) {
+                            echo 'data kosong';
+                            die();
                           } else {
                             while ($tmp = mysqli_fetch_assoc($s)) {  
                               $no++
                       ?>
                       <tr>
                           <td><?php echo $no; ?></td>
+                          <td><?php echo $tmp['nama_pegawai']; ?></td>
                           <!-- <td><?php echo $tmp['nama_cuti']; ?></td> -->
                           <td><?php echo $tmp['tgl_pengajuan']; ?></td>
                           <!-- <td><?php echo $tmp['lama_cuti']; ?></td> -->
                           <td><?php echo $tmp['tgl_mulai_cuti']; ?></td>
                           <td><?php echo $tmp['tgl_akhir_cuti']; ?></td>
                           <td><?php echo $tmp['alasan']; ?></td>
+                          <td><?php echo $tmp['nama_cuti']; ?></td>
+                          <td><?php echo $tmp['jatah_cuti']; ?></td>
                           <td><?php echo $tmp['status']; ?></td>
-                          <td>
-                            <a href="cetak_cuti.php?&id_pcuti=<?php echo $tmp['id_pcuti']; ?>" class="btn btn-xs btn-success <?=$tmp['status'] != 'Belum dikonfirmasi' ? '' : 'disabled'?>"><i class="glyphicon glyphicon-print"></i> cetak</a>
-                          </td>
                       </tr>
                       <?php 
                             } 
@@ -145,7 +147,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2><strong>List Data Pengajuan Barang Pegawai</strong></h2>
+                    <h2><strong>Pengajuan Barang Anda Yang Belum Dikonfirmasi</strong></h2>
                     <div class="clearfix"></div>
                   </div>
 
@@ -154,43 +156,40 @@
                       <table class="table table-bordered" >
                       <tr>
                         <th><strong>NO</strong></th>
+                        <th><strong>NAMA PEGAWAI</strong></th>
                         <!-- <th><strong>JENIS CUTI</strong></th> -->
                         <th><strong>TGL PENGAJUAN</strong></th>
                         <!-- <th><strong>LAMA CUTI</strong></th> -->
                         <th><strong>KATEGORI BARANG</strong></th>
                         <th><strong>NAMA BARANG</strong></th>
                         <th><strong>BERKAS</strong></th>
-                        
                         <th><strong>ALASAN CUTI</strong></th>
                         <th><strong>STATUS</strong></th>
-                        <th>ACTION</th>
                       </tr>  
                       <?php $no=0; 
                           $id_pegawai = $_SESSION['id_pegawai'];
-                          $sql = "SELECT id_pbarang,status,kategori,nama_barang ,tgl_pengajuan,berkas ,alasan 
+                          $sql = "SELECT id_pbarang,status,kategori,nama_barang ,tgl_pengajuan,berkas ,alasan, nama_pegawai 
                                   FROM pengadaan_barang
                                   INNER JOIN pegawai ON pegawai.id_pegawai = pengadaan_barang.id_pegawai
                                   INNER JOIN kategori_barang ON kategori_barang.id_kategori=pengadaan_barang.id_kategori
-                                  WHERE pengadaan_barang.id_pegawai = '$id_pegawai' AND status = 'belum dikonfirmasi'";
+                                  WHERE pengadaan_barang.id_pegawai= '$id_pegawai' AND status = 'Belum dikonfirmasi'";
                           $s = mysqli_query($conn, $sql) or die (mysqli_error($conn));
-                           if (empty(mysqli_fetch_row($s))) {
-                            echo '<tr><td colspan="7" rowspan="" headers="">Pengajuan Barang Sudah Disetujui</td></tr>';
-                            
+                           if (empty($s)) {
+                            echo 'data kosong';
+                            die();
                           } else {
                               while ($tmp = mysqli_fetch_assoc($s)) {  
                                 $no++
                       ?>
                       <tr>
                           <td><?php echo $no; ?></td>
+                          <td><?php echo $tmp['nama_pegawai']; ?></td>
                           <td><?php echo $tmp['tgl_pengajuan']; ?></td>
                           <td><?php echo $tmp['kategori']; ?></td>
                           <td><?php echo $tmp['nama_barang'] ?></td>
                           <td><?php echo $tmp['berkas']; ?></td>
                           <td><?php echo $tmp['alasan']; ?></td>
                           <td><?php echo $tmp['status']; ?></td>
-                          <td>
-                            <a href="cetak_cuti.php?&id_pcuti=<?php echo $tmp['id_pcuti']; ?>" class="btn btn-xs btn-success <?=$tmp['status'] != 'belum dikonfirmasi' ? '' : 'disabled'?>"><i class="glyphicon glyphicon-print"></i> cetak</a>
-                          </td>
                       </tr>
                       <?php 
                              } 
