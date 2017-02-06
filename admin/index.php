@@ -104,7 +104,7 @@
                           $s = mysqli_query($conn, $sql) or die (mysqli_error($conn));
                           if (empty($s)) {
                             echo 'data kosong';
-                            die();
+                            
                           } else {
                             while ($tmp = mysqli_fetch_assoc($s)) {  
                               $no++
@@ -154,13 +154,13 @@
                       <tr>
                         <th><strong>NO</strong></th>
                         <th><strong>NAMA PEGAWAI</strong></th>
-                        <!-- <th><strong>JENIS CUTI</strong></th> -->
+                        
                         <th><strong>TGL PENGAJUAN</strong></th>
-                        <!-- <th><strong>LAMA CUTI</strong></th> -->
+                        
                         <th><strong>KATEGORI BARANG</strong></th>
                         <th><strong>NAMA BARANG</strong></th>
                         <th><strong>BERKAS</strong></th>
-                        <th><strong>ALASAN CUTI</strong></th>
+                        <th><strong>ALASAN</strong></th>
                         <th><strong>STATUS</strong></th>
                         <th colspan="2"><center>ACTION</center></th>
                       </tr>  
@@ -173,7 +173,7 @@
                                   WHERE status = 'Belum dikonfirmasi'";
                           $s = mysqli_query($conn, $sql) or die (mysqli_error($conn));
                            if (empty($s)) {
-                            echo 'data kosong';
+                            echo '<tr><td colspan="7" rowspan="" headers="">data kosong</td></tr>';
                             die();
                           } else {
                               while ($tmp = mysqli_fetch_assoc($s)) {  
@@ -189,10 +189,10 @@
                           <td><?php echo $tmp['alasan']; ?></td>
                           <td><?php echo $tmp['status']; ?></td>
                          <td align="center">
-                            <a href="#" class="btn btn-xs btn-success open_modal <?=$tmp['status'] != 'disetujui' && $tmp['status'] != 'ditolak' ? '' : 'disabled'?>" id="<?php echo $tmp['id_pcuti'];?>"><i class="glyphicon glyphicon-check"></i> setujui</a>
+                            <a href="#" class="btn btn-xs btn-success buka_modal <?=$tmp['status'] != 'disetujui' && $tmp['status'] != 'ditolak' ? '' : 'disabled'?>" id="<?php echo $tmp['id_pbarang'];?>"><i class="glyphicon glyphicon-check"></i> setujui</a>
                           </td>
                           <td align="center">
-                            <a href="#" class="btn btn-xs btn-danger open_jon <?=$tmp['status'] != 'disetujui' && $tmp['status'] != 'ditolak' ? '' : 'disabled'?>" id="<?php echo $tmp['id_pcuti'];?>"><i class="glyphicon glyphicon-remove"></i> Tolak</a>
+                            <a href="#" class="btn btn-xs btn-danger open <?=$tmp['status'] != 'disetujui' && $tmp['status'] != 'ditolak' ? '' : 'disabled'?>" id="<?php echo $tmp['id_pbarang'];?>"><i class="glyphicon glyphicon-remove"></i> Tolak</a>
                           </td>
                       </tr>
                       <?php 
