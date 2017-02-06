@@ -25,7 +25,7 @@
           <!-- top tiles -->
           <div class="row tile_count">
             <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count" align="center">
-              <span class="count_top"><i class="fa fa-user"></i> Total Pegawai</span>
+              <span class="count_top"><i class="fa fa-users"></i> Total Pegawai</span>
               <?php 
                 $sql = "SELECT * FROM pegawai";
                 $s = mysqli_query($conn, $sql) or die(mysqli_error($conn));
@@ -40,7 +40,7 @@
             </div>
             
             <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count" align="center">
-              <span class="count_top"><i class="fa fa-user"></i> Total Pegawai Pria</span>
+              <span class="count_top"><i class="fa fa-male"></i> Total Pegawai Pria</span>
               <?php 
                 $sql = "SELECT * FROM pegawai WHERE jenis_kelamin ='laki-laki'";
                 $s = mysqli_query($conn, $sql) or die(mysqli_error($conn));
@@ -53,7 +53,7 @@
               <div class="count"><?php echo $count; ?></div>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count" align="center">
-              <span class="count_top"><i class="fa fa-user"></i> Total Pegawai Perempuan</span>
+              <span class="count_top"><i class="fa fa-female"></i> Total Pegawai Perempuan</span>
               <?php 
                 $sql = "SELECT * FROM pegawai where jenis_kelamin = 'perempuan'";
                 $s = mysqli_query($conn, $sql) or die(mysqli_error($conn));
