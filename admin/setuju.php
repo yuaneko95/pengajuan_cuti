@@ -12,6 +12,7 @@
                 <div class="form-group" style="padding-bottom: 20px;">
                   	<h1 class="modal-title" id="myModalLabel">Apa Anda yakin Untuk Menyetujui.!</h1>
                   	<input type="hidden" name="id_pcuti"  class="form-control" value="<?php echo $r['id_pcuti']; ?>" />
+                    <input type="hidden" name="id_jcuti"  class="form-control" value="<?php echo $r['id_jcuti']; ?>" />
                 </div>
               	<div class="modal-footer">
                   <input class="btn btn-success" value="yakin" type="submit" />
