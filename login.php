@@ -43,7 +43,7 @@
                                         echo '<div class="alert alert-danger">Upss...!!! sorry username dan password tidak cocok</div>';
                                     }
 							} else {
-								echo "username tidak dikenali";
+								echo "username atau password tidak dikenali";
 							}
 						
 						}	
