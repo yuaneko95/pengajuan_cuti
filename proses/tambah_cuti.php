@@ -17,8 +17,11 @@
 	if ($selisih <= $row['jatah_cuti']) {
 		$sql = "INSERT INTO permohonan_cuti VALUES('','$id_pegawai','$id_jcuti','$tgl_pengajuan', '$selisih', '$tgl_mulai_cuti','$tgl_akhir_cuti','$alasan','$status','','')";
 		$s = mysqli_query($conn, $sql) or die (mysqli_error($conn));
+		if ($s) {
+		echo "<script>alert('Pengajuan cuti berhasil...! Silahkan Tunggu Konfirmasi')</script>";
+		}
 	} else {
-		echo '<script>Alert("data gagal masuk");</script>';
+		echo "<script>alert('Maaf, Jatah cuti anda tahun ini telah habis....!')</script>";
 	}
 ?>
 <meta http-equiv="refresh" content="0;URL='../ajukan_cuti.php'" />
