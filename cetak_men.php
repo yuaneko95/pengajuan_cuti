@@ -23,54 +23,40 @@ $temp=mysqli_fetch_array($s);
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h4 class="modal-title" id="myModalLabel">Form Pengajuan Cuti</h4>
+                                            <h2 class="modal-title" id="myModalLabel" style="padding-left: 100px ">Form Pengajuan Cuti<img src="img/gnfi.png" style="width: 50px; height: 50px; padding-right: 0px"></h2>
+
                                         </div>
                                         <div class="modal-body">
-                                           <table>
+                                           <table align="center">
                                                <tr>
-                                                   <td><b>Nama : </b><?php echo $temp['nama_pegawai']; ?></td>
+                                                   <td style="margin-right: 50px;"><strong>Nama</strong></td>
+                                                   <td><strong>:</strong></td>
+                                                   <td><?php echo $temp['nama_pegawai']; ?></td>
                                                </tr>
                                                <tr>
-                                                   <td><b>Divisi : </b><?php echo $temp['jabatan']; ?></td>
+                                                   <td><strong> Divisi</strong></td>
+                                                   <td><strong>:</strong></td>
+                                                   <td><?php echo $temp['jabatan']; ?></td>
                                                </tr>
                                                <tr>
-                                                   <td><b>Keperluan&nbsp;&nbsp;:&nbsp;&nbsp;</b><?php echo $temp['alasan']; ?></td>                                                   
-                                                   <td></td>
+                                                 <td><strong>Tanggal Pengajuan</strong></td>
+                                                 <td><strong>:</strong></td>
+                                                 <td><?php echo $temp['tgl_pengajuan']; ?></td>
                                                </tr>
                                                <tr>
-                                                   <td><b>Tanggal Mulai Cuti&nbsp;&nbsp;:&nbsp;&nbsp;</b><?php echo $temp['tgl_mulai_cuti']; ?></td>
-                                                   <td><b>s/d </b>&nbsp;&nbsp;:&nbsp;&nbsp;<?php echo $temp['tgl_akhir_cuti']; ?></td>
-                                                   <td><b></b></td>
+                                                   <td><strong>Keperluan</strong></td>
+                                                   <td><strong>:</strong></td>                                               
+                                                   <td><?php echo $temp['alasan']; ?></td>
                                                </tr>
                                                <tr>
-                                                   <td><b>Keperluan&nbsp;&nbsp;:&nbsp;&nbsp;</b></td>
-                                                   <td><b>/</b></td>
-                                                   <td><b>Tanggal Kembali&nbsp;&nbsp;:&nbsp;&nbsp;</b></td>
+                                                   <td><strong>Tanggal Mulai Cuti</strong></td>
+                                                   <td><strong>:</strong></td>
+                                                   <td><?php echo $temp['tgl_mulai_cuti']; ?></td>
+                                                   <td style="padding-right: 40px"><strong>s/d</strong></td>
+                                                   <td><?php echo $temp['tgl_akhir_cuti']; ?></td>
                                                </tr>
                                            </table>
-                                           <table class="table table-striped table-bordered table-hover">
-                                               <tr>
-                                                   <th>No</th>
-                                                   <th>Kode Film</th>
-                                                   <th>Judul</th>
-                                                   <th>Harga</th>
-                                               </tr>
-                                               <?php while ($f = mysqli_fetch_array($e)){ 
-                                              
-                                                ?>
-                                               
-                                               <tr>
-                                                   <td><?php echo "$no"; ?></td>
-                                                   <td><?php echo "$f[2]"; ?></td>
-                                                   <td><?php echo "$f[1]"; ?></td>
-                                                   <td>Rp<?php echo number_format($f[2],0,',','.'); ?></td>
-                                               </tr>
-                                               <tr>
-                                                   <td colspan="3" align="right"><b><i>TOTAL</i></b></td>
-                                                   <td><b>Rp<?php echo number_format(0,',','.'); ?></b></td>
-                                               </tr>
-                                              <?php } ?>
-                                           </table>
+                                          
                                            </div>
                                         </div>
                                         </div>

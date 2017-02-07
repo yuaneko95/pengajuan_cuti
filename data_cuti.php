@@ -44,6 +44,10 @@
                       </li>
                     </ul>
                     <div class="clearfix"></div>
+                     <?php
+    if(isset($_GET['id_pcuti'])){
+    include "cetak_men.php";
+    }?>
                   </div>
                   <div class="col-md-2 col-sm-3 col-xs-3">
                     <form action="filter.php" method="post" accept-charset="utf-8">
@@ -65,12 +69,13 @@
                       <input type="submit" name="cari" value="cari" class="btn btn-primary">
                     </form>
                   </div>
-                    
+                  
                   <div class="x_content">
+
                     <div class="table-responsive">
                       <table class="table table-bordered" >
                       <tr>
-                        <th><strong>NO</strong></th>
+                       
                         <!-- <th><strong>JENIS CUTI</strong></th> -->
                         <th><strong>TGL PENGAJUAN</strong></th>
                         <!-- <th><strong>LAMA CUTI</strong></th> -->
@@ -78,10 +83,14 @@
                         <th><strong>AKHIR CUTI</strong></th>
                         <th><strong>ALASAN CUTI</strong></th>
                         <th><strong>STATUS</strong></th>
-                        <th>ACTION</th>
+                        <th colspan="2"><center>ACTION</center></th>
                       </tr>  
-                      <?php $no=0; 
+                      <?php 
+                          
                           $id_pegawai = $_SESSION['id_pegawai'];
+                           $limit = 4;  
+                          if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; };  
+                          $start_from = ($page-1) * $limit; 
                           $sql = "SELECT id_pcuti,status, tgl_pengajuan, tgl_mulai_cuti,tgl_akhir_cuti, alasan 
                                   FROM permohonan_cuti
                                   INNER JOIN pegawai ON pegawai.id_pegawai = permohonan_cuti.id_pegawai
@@ -89,10 +98,10 @@
                                   WHERE pegawai.id_pegawai = '$id_pegawai'";
                           $s = mysqli_query($conn, $sql) or die (mysqli_error($conn));
                           while ($tmp = mysqli_fetch_assoc($s)) {  
-                            $no++
+                            
                       ?>
                       <tr>
-                          <td><?php echo $no; ?></td>
+                          <!-- <td><?php echo $no; ?></td> -->
                           <!-- <td><?php echo $tmp['nama_cuti']; ?></td> -->
                           <td><?php echo $tmp['tgl_pengajuan']; ?></td>
                           <!-- <td><?php echo $tmp['lama_cuti']; ?></td> -->
@@ -107,10 +116,18 @@
                       </tr>
                       <?php } ?>
                     </table>
-                          <?php
-    if(isset($_GET['id_pcuti'])){
-    include "cetak_men.php";
-    }?>
+                     <?php  
+                      $sql = "SELECT COUNT(id_pcuti) FROM permohonan_cuti";  
+                      $rs_result = mysqli_query($conn,$sql) or die(mysqli_error($conn));  
+                      $row = mysqli_fetch_row($rs_result);  
+                      $total_records = $row[0];  
+                      $total_pages = ceil($total_records / $limit);  
+                      $pagLink = "<ul class='pagination'>";  
+                      for ($i=1; $i<=$total_pages; $i++) {  
+                                   $pagLink .= "<li><a href='data_cuti.php?page=".$i."'>".$i."</a></li>";  
+                      };  
+                      echo $pagLink . "</ul";  
+                      ?>
                     </div>
                   </div>
                 </div>
