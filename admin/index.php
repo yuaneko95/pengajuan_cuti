@@ -110,16 +110,16 @@
                               $no++
                       ?>
                       <tr>
-                          <td><?php echo $no; ?></td>
+                          <td align="center"><?php echo $no; ?></td>
                           <td><?php echo $tmp['nama_pegawai']; ?></td>
                           <!-- <td><?php echo $tmp['nama_cuti']; ?></td> -->
                           <td><?php echo $tmp['tgl_pengajuan']; ?></td>
-                          <td><?php echo $tmp['lama_cuti']; ?></td> 
+                          <td align="center"><?php echo $tmp['lama_cuti']; ?></td> 
                           <td><?php echo $tmp['tgl_mulai_cuti']; ?></td>
                           <td><?php echo $tmp['tgl_akhir_cuti']; ?></td>
                           <td><?php echo $tmp['alasan']; ?></td>
                           <td><?php echo $tmp['nama_cuti']; ?></td>
-                          <td><?php echo $tmp['jatah_cuti']; ?></td>
+                          <td align="center"><?php echo $tmp['jatah_cuti']; ?></td>
                           <td><?php echo $tmp['status']; ?></td>
                           <td align="center">
                             <a href="#" class="btn btn-xs btn-success open_modal <?=$tmp['status'] != 'disetujui' && $tmp['status'] != 'ditolak' ? '' : 'disabled'?>" id="<?php echo $tmp['id_pcuti'];?>"><i class="glyphicon glyphicon-check"></i> setujui</a>
@@ -180,7 +180,7 @@
                                 $no++
                       ?>
                       <tr>
-                          <td><?php echo $no; ?></td>
+                          <td align="center"><?php echo $no; ?></td>
                           <td><?php echo $tmp['nama_pegawai']; ?></td>
                           <td><?php echo $tmp['tgl_pengajuan']; ?></td>
                           <td><?php echo $tmp['kategori']; ?></td>
