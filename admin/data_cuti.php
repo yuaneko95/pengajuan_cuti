@@ -58,6 +58,7 @@
                         <!-- <th><strong>LAMA CUTI</strong></th> -->
                         <th><strong>MULAI CUTI</strong></th>
                         <th><strong>AKHIR CUTI</strong></th>
+                        <th><strong>LAMA CUTI</strong></th>
                         <th><strong>ALASAN CUTI</strong></th>
                         <th><strong>JENIS CUTI</strong></th>
                         <th><strong>JATAH CUTI</strong></th>
@@ -65,7 +66,7 @@
                         <th colspan="2"><center>ACTION</center></th>
                       </tr>  
                       <?php $no=0; 
-                          $sql = "SELECT id_pcuti,nama_pegawai, nama_cuti, tgl_pengajuan, lama_cuti,status, tgl_mulai_cuti,tgl_akhir_cuti, alasan , jatah_cuti
+                          $sql = "SELECT id_pcuti,nama_pegawai, nama_cuti, tgl_pengajuan, lama_cuti,status, tgl_mulai_cuti,tgl_akhir_cuti, alasan , jatah_cuti, lama_cuti
                                   FROM permohonan_cuti
                                   INNER JOIN pegawai ON pegawai.id_pegawai = permohonan_cuti.id_pegawai
                                   INNER JOIN jenis_cuti ON jenis_cuti.id_jcuti = permohonan_cuti.id_jcuti";
@@ -81,9 +82,10 @@
                           <!-- <td><?php echo $tmp['lama_cuti']; ?></td> -->
                           <td><?php echo $tmp['tgl_mulai_cuti']; ?></td>
                           <td><?php echo $tmp['tgl_akhir_cuti']; ?></td>
+                          <td align="center"><?php echo $tmp['lama_cuti']; ?></td>
                           <td><?php echo $tmp['alasan']; ?></td>
                           <td><?php echo $tmp['nama_cuti']; ?></td>
-                          <td><?php echo $tmp['jatah_cuti']; ?></td>
+                          <td align="center"><?php echo $tmp['jatah_cuti']; ?></td>
                           <td><?php echo $tmp['status']; ?></td>
                           
                           <td align="center">
