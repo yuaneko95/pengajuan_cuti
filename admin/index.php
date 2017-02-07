@@ -85,7 +85,7 @@
                         <th><strong>NAMA PEGAWAI</strong></th>
                         <!-- <th><strong>JENIS CUTI</strong></th> -->
                         <th><strong>TGL PENGAJUAN</strong></th>
-                        <!-- <th><strong>LAMA CUTI</strong></th> -->
+                        <th><strong>LAMA CUTI</strong></th>
                         <th><strong>MULAI CUTI</strong></th>
                         <th><strong>AKHIR CUTI</strong></th>
                         <th><strong>ALASAN CUTI</strong></th>
@@ -114,7 +114,7 @@
                           <td><?php echo $tmp['nama_pegawai']; ?></td>
                           <!-- <td><?php echo $tmp['nama_cuti']; ?></td> -->
                           <td><?php echo $tmp['tgl_pengajuan']; ?></td>
-                          <!-- <td><?php echo $tmp['lama_cuti']; ?></td> -->
+                          <td><?php echo $tmp['lama_cuti']; ?></td> 
                           <td><?php echo $tmp['tgl_mulai_cuti']; ?></td>
                           <td><?php echo $tmp['tgl_akhir_cuti']; ?></td>
                           <td><?php echo $tmp['alasan']; ?></td>

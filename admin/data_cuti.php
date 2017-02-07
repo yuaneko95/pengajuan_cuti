@@ -73,8 +73,16 @@
                           <td><?php echo $tmp['alasan']; ?></td>
                           <td><?php echo $tmp['nama_cuti']; ?></td>
                           <td align="center"><?php echo $tmp['jatah_cuti']; ?></td>
-                          <td><?php echo $tmp['status']; ?></td>
-                          
+                          <!-- <td><?php echo $tmp['status']; ?></td> -->
+                          <td>
+                            <?php if ($tmp['status']=='disetujui'){ ?>
+                                <span class="label label-success" style="font-size: 12px;">disetujui</span>
+                            <?php } elseif ($tmp['status'] == 'ditolak') { ?>
+                                <span class="label label-danger" style="font-size: 12px;">ditolak</span>
+                            <?php } elseif ($tmp['status'] == 'Belum dikonfirmasi') { ?>
+                                <span class="label label-warning" style="font-size: 12px;">Belum dikonfirmasi</span>
+                            <?php } ?>
+                          </td>
                           <td align="center">
                             <a href="#" class="btn btn-xs btn-success open_modal <?=$tmp['status'] != 'disetujui' && $tmp['status'] != 'ditolak' ? '' : 'disabled'?>" id="<?php echo $tmp['id_pcuti'];?>"><i class="glyphicon glyphicon-check"></i> setujui</a>
                           </td>
