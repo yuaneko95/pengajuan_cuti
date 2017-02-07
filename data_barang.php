@@ -60,7 +60,7 @@
                             $no++
                       ?>
                       <tr>
-                          <td><?php echo $no; ?></td>
+                          <td align="center"><?php echo $no; ?></td>
                           <td><?php echo $tmp['tgl_pengajuan']; ?></td>
                           <td><?php echo $tmp['kategori']; ?></td>
                           <td><?php echo $tmp['nama_barang'] ?></td>

@@ -49,7 +49,7 @@
                         <th colspan="2"><center>ACTION</center></th>
                       </tr>  
                       <?php 
-                           $limit = 4;  
+                           $limit = 10;  
                           if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; };  
                           $start_from = ($page-1) * $limit; 
                           $sql = "SELECT id_pcuti,nama_pegawai, nama_cuti, tgl_pengajuan, lama_cuti,status, tgl_mulai_cuti,tgl_akhir_cuti, alasan , jatah_cuti, lama_cuti
