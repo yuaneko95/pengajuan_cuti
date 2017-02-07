@@ -28,22 +28,6 @@
                 <div class="x_panel">
                   <div class="x_title">
                     <h2><strong>List Data Cuti Pegawai</strong></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
                     <div class="clearfix"></div>
                   </div>
 
@@ -51,7 +35,6 @@
                     <div class="table-responsive">
                       <table class="table table-bordered" >
                       <tr>
-                        <th><center>NO</center></th>
                         <th><strong>NAMA PEGAWAI</strong></th>
                         <!-- <th><strong>JENIS CUTI</strong></th> -->
                         <th><strong>TGL PENGAJUAN</strong></th>
@@ -65,17 +48,21 @@
                         <th><strong>STATUS</strong></th>
                         <th colspan="2"><center>ACTION</center></th>
                       </tr>  
-                      <?php $no=0; 
+                      <?php 
+                           $limit = 4;  
+                          if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; };  
+                          $start_from = ($page-1) * $limit; 
                           $sql = "SELECT id_pcuti,nama_pegawai, nama_cuti, tgl_pengajuan, lama_cuti,status, tgl_mulai_cuti,tgl_akhir_cuti, alasan , jatah_cuti, lama_cuti
                                   FROM permohonan_cuti
                                   INNER JOIN pegawai ON pegawai.id_pegawai = permohonan_cuti.id_pegawai
-                                  INNER JOIN jenis_cuti ON jenis_cuti.id_jcuti = permohonan_cuti.id_jcuti";
+                                  INNER JOIN jenis_cuti ON jenis_cuti.id_jcuti = permohonan_cuti.id_jcuti
+                                  LIMIT $start_from, $limit";
                           $s = mysqli_query($conn, $sql) or die (mysqli_error($conn));
                           while ($tmp = mysqli_fetch_assoc($s)) {  
-                            $no++
+                            
                       ?>
                       <tr>
-                          <td align="center"><?php echo $no; ?></td>
+                          
                           <td><?php echo $tmp['nama_pegawai']; ?></td>
                           <!-- <td><?php echo $tmp['nama_cuti']; ?></td> -->
                           <td><?php echo $tmp['tgl_pengajuan']; ?></td>
@@ -98,7 +85,18 @@
                       </tr>
                       <?php  } ?>
                     </table>
-
+                       <?php  
+                      $sql = "SELECT COUNT(id_pcuti) FROM permohonan_cuti ";  
+                      $rs_result = mysqli_query($conn,$sql) or die(mysqli_error($conn));  
+                      $row = mysqli_fetch_row($rs_result);  
+                      $total_records = $row[0];  
+                      $total_pages = ceil($total_records / $limit);  
+                      $pagLink = "<ul class='pagination'>";  
+                      for ($i=1; $i<=$total_pages; $i++) {  
+                                   $pagLink .= "<li><a href='data_cuti.php?page=".$i."'>".$i."</a></li>";  
+                      };  
+                      echo $pagLink . "</ul";  
+                      ?>
                     </div>
                   </div>
                 </div>
