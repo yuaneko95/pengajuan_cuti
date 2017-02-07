@@ -28,7 +28,7 @@
                     <?php  
                         include 'admin/koneksi.php';
                         $id_pcuti=$_GET['id_pcuti'];
-                        $sql = "SELECT permohonan_cuti.id_pcuti,pegawai.nama_pegawai, jabatan.jabatan ,jenis_cuti.nama_cuti, permohonan_cuti.tgl_pengajuan ,permohonan_cuti.lama_cuti, permohonan_cuti.tgl_mulai_cuti, permohonan_cuti.tgl_akhir_cuti, permohonan_cuti.alasan 
+                        $sql = "SELECT permohonan_cuti.id_pcuti,pegawai.nama_pegawai, jabatan.jabatan ,jenis_cuti.nama_cuti, permohonan_cuti.tgl_pengajuan ,permohonan_cuti.lama_cuti, permohonan_cuti.tgl_mulai_cuti, permohonan_cuti.tgl_akhir_cuti, permohonan_cuti.alasan ,permohonan_cuti.status
                           FROM pegawai, permohonan_cuti, jabatan, jenis_cuti
                           WHERE pegawai.id_pegawai = permohonan_cuti.id_pegawai
                           AND pegawai.id_jabatan= jabatan.id_jabatan
@@ -49,28 +49,33 @@
                       <table style="margin-top: 80px">
                         <tr>
                           <td style="padding-left: 200px">NAMA</td>
-                          <td style="padding-left: 10px">:</td>
-                          <td style="padding-left: 10px"><?php echo $temp['nama_pegawai']; ?></td>
+                          <td style="padding-left: 30px">:</td>
+                          <td style="padding-left: 30px"><?php echo $temp['nama_pegawai']; ?></td>
                         </tr>
                         <tr >
                           <td style="padding-left: 200px">DIVISI</td>
-                          <td style="padding-left: 10px">:</td>
-                          <td style="padding-left: 10px"><?php echo $temp['jabatan']; ?></td>
+                          <td style="padding-left: 30px">:</td>
+                          <td style="padding-left: 30px"><?php echo $temp['jabatan']; ?></td>
                         </tr>
                         <tr>
                           <td style="padding-left: 200px">TGL MULAI CUTI</td>
-                          <td style="padding-left: 10px">:</td>
-                          <td style="padding-left: 10px"><?php echo $temp['tgl_mulai_cuti']; ?></td>
+                          <td style="padding-left: 30px">:</td>
+                          <td style="padding-left: 30px"><?php echo $temp['tgl_mulai_cuti']; ?></td>
                         </tr>
                         <tr>
                           <td style="padding-left: 200px">TGL AKHIR CUTI</td>
-                          <td style="padding-left: 10px">:</td>
-                          <td style="padding-left: 10px"><?php echo $temp['tgl_akhir_cuti']; ?></td>
+                          <td style="padding-left: 30px">:</td>
+                          <td style="padding-left: 30px"><?php echo $temp['tgl_akhir_cuti']; ?></td>
                         </tr>
                         <tr>
-                          <td style="padding-left: 200px">PERIHAL CUTI</td>
-                          <td style="padding-left: 10px">:</td>
-                          <td style="padding-left: 10px"><?php echo $temp['alasan']; ?></td>
+                          <td style="padding-left: 200px">KEPERLUAN</td>
+                          <td style="padding-left: 30px">:</td>
+                          <td style="padding-left: 30px"><?php echo $temp['alasan']; ?></td>
+                        </tr>
+                        <tr>
+                          <td style="padding-left: 200px">STATUS</td>
+                          <td style="padding-left: 30px">:</td>
+                          <td style="padding-left: 30px"><?php echo $temp['status']; ?></td>
                         </tr>
                       </table>
                <!--    </div>
