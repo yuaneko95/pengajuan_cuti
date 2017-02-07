@@ -110,9 +110,6 @@
                           <td><?php echo $tmp['tgl_akhir_cuti']; ?></td>
                           <td><?php echo $tmp['alasan']; ?></td>
                           <td><?php echo $tmp['status']; ?></td>
-                          <td>
-                            <a href="cetak_cuti.php?&id_pcuti=<?php echo $tmp['id_pcuti']; ?>" class="btn btn-xs btn-success"><i class="glyphicon glyphicon-print"></i> cetak</a>
-                          </td>
                           <td align='center'><a href='data_cuti.php?&id_pcuti=<?php echo $tmp['id_pcuti']; ?>'><button class='btn btn-primary btn-sm' data-toggle='modal' data-id = '$tmp['id_pcuti']' data-target='#myModal'>Detail</button></a></td>
                       </tr>
                       <?php } ?>
