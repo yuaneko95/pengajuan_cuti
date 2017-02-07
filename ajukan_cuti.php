@@ -26,8 +26,14 @@
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
+                 <?php  
+                      $id_pegawai=$_SESSION['id_pegawai'];
+                      $q = "SELECT * FROM pegawai WHERE id_pegawai='$id_pegawai'";
+                      $a = mysqli_query($conn, $q) or die (mysqli_error($conn));
+                      while ($t = mysqli_fetch_assoc($a)) {
+                    ?>
                   <div class="x_title">
-                    <h2>Form Pengajuan Cuti</h2>
+                    <h2>Form Pengajuan Cuti | Jatah Cuti Anda Tersisa '<strong><?php echo $t['jatah_cuti'];  } ?></strong>' Hari</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -36,9 +42,13 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" action="proses/tambah_cuti.php" method="POST" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
+                    <form id="demo-form2" action="proses/tambah_cuti.php" method="POST" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">                      
                       <div class="form-group">
-                        <label for="jenis_cuti" class="control-label col-md-3 col-sm-3 col-xs-12">JENIS CUTI</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="form-group">                        
+                        <label for="jenis_cuti" class="control-label col-md-3 col-sm-3 col-xs-12">JENIS CUTI </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select name="id_jcuti" class="form-control">
                           <?php  
