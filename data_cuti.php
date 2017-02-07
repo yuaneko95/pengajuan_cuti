@@ -95,7 +95,8 @@
                                   FROM permohonan_cuti
                                   INNER JOIN pegawai ON pegawai.id_pegawai = permohonan_cuti.id_pegawai
                                   
-                                  WHERE pegawai.id_pegawai = '$id_pegawai'";
+                                  WHERE pegawai.id_pegawai = '$id_pegawai'
+                                  LIMIT $start_from, $limit";
                           $s = mysqli_query($conn, $sql) or die (mysqli_error($conn));
                           while ($tmp = mysqli_fetch_assoc($s)) {  
                             
@@ -117,7 +118,7 @@
                       <?php } ?>
                     </table>
                      <?php  
-                      $sql = "SELECT COUNT(id_pcuti) FROM permohonan_cuti";  
+                      $sql = "SELECT COUNT(id_pcuti) FROM permohonan_cuti WHERE id_pegawai = '$id_pegawai'";  
                       $rs_result = mysqli_query($conn,$sql) or die(mysqli_error($conn));  
                       $row = mysqli_fetch_row($rs_result);  
                       $total_records = $row[0];  
