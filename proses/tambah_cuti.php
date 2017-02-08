@@ -32,7 +32,7 @@
 		echo "<script>alert('Pengajuan cuti berhasil...! Silahkan Tunggu Konfirmasi')</script>";
 		}
 	} else {
-		echo "sweet()";
+		echo "<script>alert('Maaf, Jatah cuti anda tahun ini telah habis....!')</script>";
 	}
 ?>
 <meta http-equiv="refresh" content="0;URL='../ajukan_cuti.php'" />
