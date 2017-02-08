@@ -1,4 +1,15 @@
-<?php  
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	 <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+	<link rel="stylesheet" href="vendors/bootstrap/dist/css/sweetalert.css">
+</head>
+<body>
+	<?php  
 	session_start();
 	include '../admin/koneksi.php';
 	$id_pegawai = $_SESSION['id_pegawai'];
@@ -21,7 +32,19 @@
 		echo "<script>alert('Pengajuan cuti berhasil...! Silahkan Tunggu Konfirmasi')</script>";
 		}
 	} else {
-		echo "<script>alert('Maaf, Jatah cuti anda tahun ini telah habis....!')</script>";
+		echo "sweet()";
 	}
 ?>
 <meta http-equiv="refresh" content="0;URL='../ajukan_cuti.php'" />
+<script type="text/javascript">
+	function sweet (){
+		swal("Good job!", "You clicked the button!", "success");
+	}	
+</script>
+
+ <script src="vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="vendors/bootstrap/dist/js/sweetalert.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
