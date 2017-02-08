@@ -1,6 +1,5 @@
 <?php 
-	include "../koneksi.php";
-	$option = ['cost' => 10,];
+	include '../admin/koneksi.php';
 	$id_pegawai 	= $_POST['id_pegawai'];
 	$nama_pegawai 	= $_POST['nama_pegawai'];
 	$id_jabatan 	= $_POST['id_jabatan'];
@@ -8,12 +7,11 @@
 	$email 			= $_POST['email'];
 	$alamat_pegawai = $_POST['alamat_pegawai'];
 	$telpon_pegawai = $_POST['telpon_pegawai'];
-	$status_pegawai	= $_POST['status_pegawai'];
 	$file 			= $_FILES["foto"]["name"];
-	$target_dir 	= "../img/";
+	$target_dir 	= "../admin/img/";
   	$target_file 	= $target_dir . basename($_FILES["foto"]["name"]);
   	$uploadOk 		= 1;
-  	$imageFileType 	= pathinfo($target_file,PATHINFO_EXTENSION);
+  	$imageFileType 	= pathinfo($target_file,PATHINFO_EXTENSION);	
 
 	// Periksa ukuran file================================================
 	if($_FILES["foto"]["name"] != ""){
@@ -33,9 +31,9 @@
 	}
 
 	if ($_FILES["foto"]["name"] == ""){
-	$a = "UPDATE pegawai SET id_pegawai = '$id_pegawai', nama_pegawai = '$nama_pegawai', id_jabatan = '$id_jabatan', email = '$email', jenis_kelamin = '$jenis_kelamin', alamat_pegawai = '$alamat_pegawai', telpon_pegawai = '$telpon_pegawai', status_pegawai = '$status_pegawai' WHERE id_pegawai = '$id_pegawai'";
+	$a = "UPDATE pegawai SET nama_pegawai = '$nama_pegawai', id_jabatan = '$id_jabatan', email = '$email', jenis_kelamin = '$jenis_kelamin', alamat_pegawai = '$alamat_pegawai', telpon_pegawai = '$telpon_pegawai' WHERE id_pegawai = '$id_pegawai'";
 	}else{
-	$a = "UPDATE pegawai SET id_pegawai = '$id_pegawai', nama_pegawai = '$nama_pegawai', id_jabatan = '$id_jabatan', email = '$email', jenis_kelamin = '$jenis_kelamin', alamat_pegawai = '$alamat_pegawai', telpon_pegawai = '$telpon_pegawai', status_pegawai = '$status_pegawai',foto = '$file' WHERE id_pegawai = '$id_pegawai'";
+	$a = "UPDATE pegawai SET nama_pegawai = '$nama_pegawai', id_jabatan = '$id_jabatan', email = '$email', jenis_kelamin = '$jenis_kelamin', alamat_pegawai = '$alamat_pegawai', telpon_pegawai = '$telpon_pegawai', foto = '$file' WHERE id_pegawai = '$id_pegawai'";
   	}
 	$b = mysqli_query($conn,$a) or die (mysqli_error());
 	if ($b == true){
@@ -44,4 +42,4 @@
 	echo "<script>alert('UPDATE GAK BERHASIL')</script>";
 	}
 ?>
-<meta http-equiv="refresh" content="0;URL=../list_pegawai.php" />
+<meta http-equiv="refresh" content="0;URL=../profil.php" />

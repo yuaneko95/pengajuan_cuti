@@ -81,6 +81,7 @@
                       <li><a href="ajukan_barang.php" title="">Ajukan Barang</a></li>
                       <li><a href="data_cuti.php" title="">Data Cuti</a></li>
                       <li><a href="data_barang.php" title="">Data Barang</a></li>
+                      <li><a href="profil.php" title="">Profile</a></li>
                     </ul>
                   </li>
                 </ul>
