@@ -4,8 +4,9 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
-	 <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+	<link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
+    <script type="text/javascript" src="dist/sweetalert.min.js"></script>
 	<link rel="stylesheet" href="vendors/bootstrap/dist/css/sweetalert.css">
 </head>
 <body>
@@ -29,10 +30,10 @@
 		$sql = "INSERT INTO permohonan_cuti VALUES('','$id_pegawai','$id_jcuti','$tgl_pengajuan', '$selisih', '$tgl_mulai_cuti','$tgl_akhir_cuti','$alasan','$status','','')";
 		$s = mysqli_query($conn, $sql) or die (mysqli_error($conn));
 		if ($s) {
-		echo "<script>alert('Pengajuan cuti berhasil...! Silahkan Tunggu Konfirmasi')</script>";
+		echo "<script>alert('Pengajuan Cuti Terkirim...!, Mohon Tunngu Konfirmasi')</script>";
 		}
 	} else {
-		echo "<script>alert('Maaf, Jatah cuti anda tahun ini telah habis....!')</script>";
+		echo "<script>alert('Maaf, Jatah cuti anda kurang...')</script>";
 	}
 ?>
 <meta http-equiv="refresh" content="0;URL='../ajukan_cuti.php'" />

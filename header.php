@@ -9,6 +9,9 @@
 
     <title>Gentelella Alela! | </title>
 
+    <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
+    <script type="text/javascript" src="dist/sweetalert.min.js"></script>
+
     <!-- Bootstrap -->
   <!--   <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"> -->
     <!-- Font Awesome -->
@@ -118,7 +121,14 @@
       </div>
     </div>
 
- 
+  <script>
+  function normal () {
+  alert("Normal Alert!");
+  }
+  function sweet (){
+  swal("Maaf men jatah cuti anda sudah habis!", "You clicked the button!", "success");
+  }
+  </script>
   </body>
   <?php }?>
 </html>
