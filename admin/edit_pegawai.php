@@ -76,7 +76,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select name="id_jabatan" class="form-control">
                           <?php  
-                            $sql = "SELECT * FROM jabatan";
+                            $sql = "SELECT * FROM jabatan ORDER BY jabatan ASC";
                             $s = mysqli_query($conn, $sql) or die (mysqli_error($conn));
                             while ($tmp = mysqli_fetch_assoc($s)) {
                           ?>

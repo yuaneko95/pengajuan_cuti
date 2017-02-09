@@ -48,6 +48,7 @@
                         <th>TELPON PEGAWAI</th>
                         <th>FOTO</th>
                         <th>JATAH CUTI</th>
+                        <th>USERNAME</th>
                         <th colspan="2"><center>ACTION</center></th>
                       </tr>  
                       <?php 
@@ -55,7 +56,7 @@
                           $limit = 7;  
                           if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; };  
                           $start_from = ($page-1) * $limit; 
-                          $sql = "SELECT id_pegawai,nama_pegawai,jabatan,jenis_kelamin,email,alamat_pegawai,telpon_pegawai,foto,jatah_cuti FROM pegawai INNER JOIN jabatan ON jabatan.id_jabatan = pegawai.id_jabatan LIMIT $start_from, $limit";
+                          $sql = "SELECT id_pegawai,nama_pegawai,jabatan,jenis_kelamin,email,alamat_pegawai,telpon_pegawai,foto,jatah_cuti, username FROM pegawai INNER JOIN jabatan ON jabatan.id_jabatan = pegawai.id_jabatan LIMIT $start_from, $limit";
                           $s = mysqli_query($conn, $sql) or die (mysqli_error($conn));
                           while ($tmp = mysqli_fetch_assoc($s)) {  
                             $no++
@@ -71,6 +72,7 @@
                           <td><?php echo $tmp['telpon_pegawai']; ?></td>
                           <td><img src="<?php echo'img/'.$tmp['foto']; ?>" alt="" style="width: 40px; height: 60px;"></td>
                           <td align="center"><?php echo $tmp['jatah_cuti']; ?></td>
+                          <td><?php echo $tmp['username']; ?></td>
                           <td>
                             <a href="edit_pegawai.php?&id_pegawai=<?php echo $tmp['id_pegawai']; ?>" class="btn btn-xs btn-warning" ><i class="glyphicon glyphicon-pencil"></i> edit</a>
                           </td>
