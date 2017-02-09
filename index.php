@@ -104,19 +104,17 @@
                         <th><strong>STATUS</strong></th>
                       </tr>  
                       <?php $no=0; 
-                          $id_pegawai = $_SESSION['id_pegawai'];
-                          $sql = "SELECT id_pcuti,nama_pegawai, nama_cuti, tgl_pengajuan, lama_cuti,status, tgl_mulai_cuti,tgl_akhir_cuti, alasan , jatah_cuti
-                                  FROM permohonan_cuti
-                                  INNER JOIN pegawai ON pegawai.id_pegawai = permohonan_cuti.id_pegawai
-                                  INNER JOIN jenis_cuti ON jenis_cuti.id_jcuti = permohonan_cuti.id_jcuti
-                                  WHERE permohonan_cuti.id_pegawai = '$id_pegawai' AND status = 'Belum dikonfirmasi'";
-                          $s = mysqli_query($conn, $sql) or die (mysqli_error($conn));
-                          if (empty($s)) {
-                            echo 'data kosong';
-                            die();
-                          } else {
-                            while ($tmp = mysqli_fetch_assoc($s)) {  
-                              $no++
+                      $id_pegawai = $_SESSION['id_pegawai'];
+                      $sql = "SELECT id_pcuti,nama_pegawai, nama_cuti, tgl_pengajuan, lama_cuti,status, tgl_mulai_cuti,tgl_akhir_cuti, alasan , jatah_cuti
+                              FROM permohonan_cuti
+                              INNER JOIN pegawai ON pegawai.id_pegawai = permohonan_cuti.id_pegawai
+                              INNER JOIN jenis_cuti ON jenis_cuti.id_jcuti = permohonan_cuti.id_jcuti
+                              WHERE permohonan_cuti.id_pegawai = '$id_pegawai' AND status = 'Belum dikonfirmasi'";
+                      $s = mysqli_query($conn, $sql) or die (mysqli_error($conn));
+                      $num_rows = mysqli_num_rows($s);
+                      if (!empty($num_rows)) {
+                      while ($tmp = mysqli_fetch_assoc($s)) {  
+                        $no++
                       ?>
                       <tr>
                           <td><?php echo $no; ?></td>
@@ -131,10 +129,11 @@
                           <td><?php echo $tmp['jatah_cuti']; ?></td>
                           <td><?php echo $tmp['status']; ?></td>
                       </tr>
-                      <?php 
-                            } 
-                          }
-                      ?>
+                      <?php }}else{ ?>
+                      <tr>
+                      <td colspan="9">Data Belum Ada</td>
+                      </tr>
+                      <?php } ?>
                     </table>
 
                     </div>

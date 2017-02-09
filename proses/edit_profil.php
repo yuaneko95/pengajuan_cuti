@@ -2,6 +2,7 @@
 	include '../admin/koneksi.php';
 	$id_pegawai 	= $_POST['id_pegawai'];
 	$nama_pegawai 	= $_POST['nama_pegawai'];
+	$username	 	= $_POST['username'];
 	$id_jabatan 	= $_POST['id_jabatan'];
 	$jenis_kelamin 	= $_POST['jenis_kelamin'];
 	$email 			= $_POST['email'];
@@ -31,9 +32,9 @@
 	}
 
 	if ($_FILES["foto"]["name"] == ""){
-	$a = "UPDATE pegawai SET nama_pegawai = '$nama_pegawai', id_jabatan = '$id_jabatan', email = '$email', jenis_kelamin = '$jenis_kelamin', alamat_pegawai = '$alamat_pegawai', telpon_pegawai = '$telpon_pegawai' WHERE id_pegawai = '$id_pegawai'";
+	$a = "UPDATE pegawai SET nama_pegawai = '$nama_pegawai',username='$username', id_jabatan = '$id_jabatan', email = '$email', jenis_kelamin = '$jenis_kelamin', alamat_pegawai = '$alamat_pegawai', telpon_pegawai = '$telpon_pegawai' WHERE id_pegawai = '$id_pegawai'";
 	}else{
-	$a = "UPDATE pegawai SET nama_pegawai = '$nama_pegawai', id_jabatan = '$id_jabatan', email = '$email', jenis_kelamin = '$jenis_kelamin', alamat_pegawai = '$alamat_pegawai', telpon_pegawai = '$telpon_pegawai', foto = '$file' WHERE id_pegawai = '$id_pegawai'";
+	$a = "UPDATE pegawai SET nama_pegawai = '$nama_pegawai',username='$username', id_jabatan = '$id_jabatan', email = '$email', jenis_kelamin = '$jenis_kelamin', alamat_pegawai = '$alamat_pegawai', telpon_pegawai = '$telpon_pegawai', foto = '$file' WHERE id_pegawai = '$id_pegawai'";
   	}
 	$b = mysqli_query($conn,$a) or die (mysqli_error());
 	if ($b == true){
