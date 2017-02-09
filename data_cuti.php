@@ -86,8 +86,10 @@
                                   WHERE pegawai.id_pegawai = '$id_pegawai'
                                   LIMIT $start_from, $limit";
                           $s = mysqli_query($conn, $sql) or die (mysqli_error($conn));
+                          $num_rows = mysqli_num_rows($s);
+                          if (!empty($num_rows)) {
                           while ($tmp = mysqli_fetch_assoc($s)) {  
-                            
+                          $no++
                       ?>
                       <tr>
                           <!-- <td><?php echo $no; ?></td> -->
@@ -99,6 +101,10 @@
                           <td><?php echo $tmp['alasan']; ?></td>
                           <td><?php echo $tmp['status']; ?></td>
                           <td align='center'><a href='data_cuti.php?&id_pcuti=<?php echo $tmp['id_pcuti']; ?>'><button class='btn btn-primary btn-sm' data-toggle='modal' data-id = '$tmp['id_pcuti']' data-target='#myModal'>Detail</button></a></td>
+                      </tr>
+                     <?php }}else{ ?>
+                      <tr>
+                      <td align="center" colspan="9">Data Belum Tersedia</td>
                       </tr>
                       <?php } ?>
                     </table>

@@ -58,8 +58,10 @@
                                   INNER JOIN jenis_cuti ON jenis_cuti.id_jcuti = permohonan_cuti.id_jcuti
                                   LIMIT $start_from, $limit";
                           $s = mysqli_query($conn, $sql) or die (mysqli_error($conn));
+                          $num_rows = mysqli_num_rows($s);
+                          if (!empty($num_rows)) {
                           while ($tmp = mysqli_fetch_assoc($s)) {  
-                            
+                          $no++
                       ?>
                       <tr>
                           
@@ -91,7 +93,11 @@
                           </td>
                           
                       </tr>
-                      <?php  } ?>
+                      <?php }}else{ ?>
+                      <tr>
+                      <td align="center" colspan="10">Data Belum Tersedia</td>
+                      </tr>
+                      <?php } ?>
                     </table>
                        <?php  
                       $sql = "SELECT COUNT(id_pcuti) FROM permohonan_cuti ";  

@@ -70,8 +70,10 @@
                           $start_from = ($page-1) * $limit; 
                           $sql = "SELECT id_pegawai,nama_pegawai,jabatan,jenis_kelamin,email,alamat_pegawai,telpon_pegawai,foto,jatah_cuti, username FROM pegawai INNER JOIN jabatan ON jabatan.id_jabatan = pegawai.id_jabatan LIMIT $start_from, $limit";
                           $s = mysqli_query($conn, $sql) or die (mysqli_error($conn));
+                          $num_rows = mysqli_num_rows($s);
+                          if (!empty($num_rows)) {
                           while ($tmp = mysqli_fetch_assoc($s)) {  
-                            $no++
+                          $no++
                       ?>
                       <tr>
                           <!-- <td><?php echo $no; ?></td> -->
@@ -92,9 +94,11 @@
                             <a href="#" class="btn btn-xs btn-danger" onclick="confirmdel('proses/hapus_pegawai.php?&id_pegawai=<?php echo $tmp['id_pegawai']; ?>');"><i class="glyphicon glyphicon-trash"></i> hapus</a>
                           </td>
                       </tr>
-                      <?php  }
-                        
-                      ?>
+                      <?php }}else{ ?>
+                      <tr>
+                      <td align="center" colspan="11">Data Belum Tersedia</td>
+                      </tr>
+                      <?php } ?>
                     </table>
                    <?php  
                       $sql = "SELECT COUNT(id_pegawai) FROM pegawai";  

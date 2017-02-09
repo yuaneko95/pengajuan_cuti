@@ -56,8 +56,10 @@
                                   INNER JOIN kategori_barang ON kategori_barang.id_kategori=pengadaan_barang.id_kategori
                                   WHERE pengadaan_barang.id_pegawai = '$id_pegawai'";
                           $s = mysqli_query($conn, $sql) or die (mysqli_error($conn));
+                          $num_rows = mysqli_num_rows($s);
+                          if (!empty($num_rows)) {
                           while ($tmp = mysqli_fetch_assoc($s)) {  
-                            $no++
+                          $no++
                       ?>
                       <tr>
                           <td align="center"><?php echo $no; ?></td>
@@ -68,6 +70,10 @@
                           <td><?php echo $tmp['alasan']; ?></td>
                           <td><?php echo $tmp['status']; ?></td>
                          
+                      </tr>
+                      <?php }}else{ ?>
+                      <tr>
+                      <td align="center" colspan="9">Data Belum Tersedia</td>
                       </tr>
                       <?php } ?>
                     </table>

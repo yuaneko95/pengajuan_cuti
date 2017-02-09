@@ -55,8 +55,10 @@
                                   INNER JOIN kategori_barang ON kategori_barang.id_kategori=pengadaan_barang.id_kategori
                                   ";
                           $s = mysqli_query($conn, $sql) or die (mysqli_error($conn));
+                          $num_rows = mysqli_num_rows($s);
+                          if (!empty($num_rows)) {
                           while ($tmp = mysqli_fetch_assoc($s)) {  
-                            $no++
+                          $no++
                       ?>
                       <tr>
                           <td align="center"><?php echo $no; ?></td>
@@ -74,6 +76,10 @@
                           <td align="center">
                             <a href="#" class="btn btn-xs btn-danger open_jon <?=$tmp['status'] != 'disetujui' && $tmp['status'] != 'ditolak' ? '' : 'disabled'?>" id="<?php echo $tmp['id_pbarang'];?>"><i class="glyphicon glyphicon-remove"></i> Tolak</a>
                           </td>
+                      </tr>
+                     <?php }}else{ ?>
+                      <tr>
+                      <td align="center" colspan="9">Data Belum Tersedia</td>
                       </tr>
                       <?php } ?>
                     </table>

@@ -131,7 +131,7 @@
                       </tr>
                       <?php }}else{ ?>
                       <tr>
-                      <td colspan="9">Data Belum Ada</td>
+                      <td align="center" colspan="9">Data Belum Tersedia</td>
                       </tr>
                       <?php } ?>
                     </table>
@@ -173,12 +173,11 @@
                                   INNER JOIN kategori_barang ON kategori_barang.id_kategori=pengadaan_barang.id_kategori
                                   WHERE pengadaan_barang.id_pegawai= '$id_pegawai' AND status = 'Belum dikonfirmasi'";
                           $s = mysqli_query($conn, $sql) or die (mysqli_error($conn));
-                           if (empty($s)) {
-                            echo 'data kosong';
-                            die();
-                          } else {
-                              while ($tmp = mysqli_fetch_assoc($s)) {  
-                                $no++
+                          $num_rows = mysqli_num_rows($s);
+                          if (!empty($num_rows)) {
+                          while ($tmp = mysqli_fetch_assoc($s)) {  
+                          $no++
+                      ?>
                       ?>
                       <tr>
                           <td><?php echo $no; ?></td>
@@ -190,10 +189,11 @@
                           <td><?php echo $tmp['alasan']; ?></td>
                           <td><?php echo $tmp['status']; ?></td>
                       </tr>
-                      <?php 
-                             } 
-                         }       
-                      ?>
+                      <?php }}else{ ?>
+                      <tr>
+                      <td align="center" colspan="9">Data Belum Tersedia</td>
+                      </tr>
+                      <?php } ?>
                     </table>
 
                     </div>

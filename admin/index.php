@@ -102,12 +102,10 @@
                                   INNER JOIN jenis_cuti ON jenis_cuti.id_jcuti = permohonan_cuti.id_jcuti
                                   WHERE status = 'Belum dikonfirmasi'";
                           $s = mysqli_query($conn, $sql) or die (mysqli_error($conn));
-                          if (empty($s)) {
-                            echo 'data kosong';
-                            
-                          } else {
-                            while ($tmp = mysqli_fetch_assoc($s)) {  
-                              $no++
+                          $num_rows = mysqli_num_rows($s);
+                          if (!empty($num_rows)) {
+                          while ($tmp = mysqli_fetch_assoc($s)) {  
+                          $no++
                       ?>
                       <tr>
                           <td align="center"><?php echo $no; ?></td>
@@ -128,10 +126,11 @@
                             <a href="#" class="btn btn-xs btn-danger open_jon <?=$tmp['status'] != 'disetujui' && $tmp['status'] != 'ditolak' ? '' : 'disabled'?>" id="<?php echo $tmp['id_pcuti'];?>"><i class="glyphicon glyphicon-remove"></i> Tolak</a>
                           </td>
                       </tr>
-                      <?php 
-                            } 
-                          }
-                      ?>
+                      <?php }}else{ ?>
+                      <tr>
+                      <td align="center" colspan="11">Data Belum Tersedia</td>
+                      </tr>
+                      <?php } ?>
                     </table>
 
                     </div>
@@ -172,12 +171,10 @@
                                   INNER JOIN kategori_barang ON kategori_barang.id_kategori=pengadaan_barang.id_kategori
                                   WHERE status = 'Belum dikonfirmasi'";
                           $s = mysqli_query($conn, $sql) or die (mysqli_error($conn));
-                           if (empty($s)) {
-                            echo '<tr><td colspan="7" rowspan="" headers="">data kosong</td></tr>';
-                            die();
-                          } else {
-                              while ($tmp = mysqli_fetch_assoc($s)) {  
-                                $no++
+                          $num_rows = mysqli_num_rows($s);
+                          if (!empty($num_rows)) {
+                          while ($tmp = mysqli_fetch_assoc($s)) {  
+                          $no++
                       ?>
                       <tr>
                           <td align="center"><?php echo $no; ?></td>
@@ -195,10 +192,11 @@
                             <a href="#" class="btn btn-xs btn-danger open <?=$tmp['status'] != 'disetujui' && $tmp['status'] != 'ditolak' ? '' : 'disabled'?>" id="<?php echo $tmp['id_pbarang'];?>"><i class="glyphicon glyphicon-remove"></i> Tolak</a>
                           </td>
                       </tr>
-                      <?php 
-                             } 
-                         }       
-                      ?>
+                      <?php }}else{ ?>
+                      <tr>
+                      <td align="center" colspan="9">Data Belum Tersedia</td>
+                      </tr>
+                      <?php } ?>
                     </table>
 
                     </div>
