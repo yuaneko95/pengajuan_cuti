@@ -34,17 +34,15 @@
                     <div class="clearfix"></div>
                   </div>
                   <a href="tambah_pegawai.php" class="btn btn-lg btn-primary" >Tambah Pegawai</a>
-                  <form action="searchpeg.php" method="post" accept-charset="utf-8">
-                    <div class="row">
-                    <div class="col-md-8"></div>
-                    <div class="col-md-4" style="top: -29px">
-                      <input type="text" name="cari_peg" class=="form-control" placeholder="cari nama pegawai">
-                      <input type="submit" name="cari" class="btn btn-primary" value="Cari Nama">
-                    </div>
-                  </div>
+                  <form action="" method="post">
+                  	<div class="row">
+	                    <div class="col-md-8"></div>
+	                    <div class="col-md-4" style="top: -29px">
+	                      <input type="text" name="cari_peg" class=="form-control" placeholder="cari nama pegawai">
+	                      <input type="submit" name="cari" class="btn btn-primary" value="Cari Nama">
+	                    </div>
+                  	</div>
                   </form>
-                  
-
                   <div class="x_content">
 
                   <div class="table-responsive">
@@ -64,11 +62,9 @@
                         <th colspan="2"><center>ACTION</center></th>
                       </tr>  
                       <?php 
-                          $no=0; 
-                          $limit = 7;  
-                          if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; };  
-                          $start_from = ($page-1) * $limit; 
-                          $sql = "SELECT id_pegawai,nama_pegawai,jabatan,jenis_kelamin,email,alamat_pegawai,telpon_pegawai,foto,jatah_cuti, username FROM pegawai INNER JOIN jabatan ON jabatan.id_jabatan = pegawai.id_jabatan LIMIT $start_from, $limit";
+                          if (isset($_POST['cari'])) {
+                          	$cari_peg = $_POST['cari_peg'];
+                          $sql = "SELECT id_pegawai,nama_pegawai,jabatan,jenis_kelamin,email,alamat_pegawai,telpon_pegawai,foto,jatah_cuti, username FROM pegawai INNER JOIN jabatan ON jabatan.id_jabatan = pegawai.id_jabatan WHERE nama_pegawai LIKE '%$cari_peg%' ";
                           $s = mysqli_query($conn, $sql) or die (mysqli_error($conn));
                           while ($tmp = mysqli_fetch_assoc($s)) {  
                             $no++
@@ -92,22 +88,11 @@
                             <a href="#" class="btn btn-xs btn-danger" onclick="confirmdel('proses/hapus_pegawai.php?&id_pegawai=<?php echo $tmp['id_pegawai']; ?>');"><i class="glyphicon glyphicon-trash"></i> hapus</a>
                           </td>
                       </tr>
-                      <?php  }
+                      <?php  }}
                         
                       ?>
                     </table>
-                   <?php  
-                      $sql = "SELECT COUNT(id_pegawai) FROM pegawai";  
-                      $rs_result = mysqli_query($conn,$sql) or die(mysqli_error($conn));  
-                      $row = mysqli_fetch_row($rs_result);  
-                      $total_records = $row[0];  
-                      $total_pages = ceil($total_records / $limit);  
-                      $pagLink = "<ul class='pagination'>";  
-                      for ($i=1; $i<=$total_pages; $i++) {  
-                                   $pagLink .= "<li><a href='list_pegawai.php?page=".$i."'>".$i."</a></li>";  
-                      };  
-                      echo $pagLink . "</ul";  
-                      ?>
+                  
                   </div>
                     <br />
                     
@@ -159,3 +144,4 @@
   
   </body>
 </html>
+
