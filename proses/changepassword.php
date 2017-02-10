@@ -16,10 +16,10 @@
 
 		if($updatequery)
 		{
-			echo "<script>Alert('PASSWORD ANDA BERHASIL DI UBAH')</script>";
+			echo "<script>alert('PASSWORD ANDA BERHASIL DI UBAH')</script>";
 			
 		} else {
-			echo "<script>Alert('GAGAL UBAH PASSWORD')</script>";
+			echo "<script>alert('GAGAL UBAH PASSWORD')</script>";
 		}
 	}
 	
