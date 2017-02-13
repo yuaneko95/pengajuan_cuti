@@ -62,20 +62,6 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">JABATAN</label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select name="id_jabatan" class="form-control">
-                          <?php  
-                            $sql = "SELECT * FROM jabatan";
-                            $s = mysqli_query($conn, $sql) or die (mysqli_error($conn));
-                            while ($tmp = mysqli_fetch_assoc($s)) {
-                          ?>
-                            <option value="<?php echo $tmp['id_jabatan']; ?>" <?=$temp['id_jabatan'] == $tmp['id_jabatan'] ?'selected' : ''?>><?php echo $tmp['jabatan']; ?></option>
-                            <?php } ?>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">JENIS KELAMIN</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <div id="gender" class="btn-group" data-toggle="buttons">
