@@ -18,7 +18,7 @@
 	// Periksa ukuran file================================================
 	if($_FILES["foto"]["name"] != ""){
 	if ($_FILES["foto"]["size"] > 1000000) {
-    echo "<script>alert('Maaf, File Anda terlalu besar...!')</script>";
+    echo "<script>alert('Maaf, Size foto terlalu besar...! Upload foto gagal')</script>";
     $uploadOk = 0;
 	}
 	}
