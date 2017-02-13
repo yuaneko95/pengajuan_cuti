@@ -37,9 +37,9 @@
                   <a href="tambah_pegawai.php" class="btn btn-lg btn-primary" >Tambah Pegawai</a>    
                     <form action="searchpeg.php" method="post" accept-charset="utf-8">
                     <div class="input-group">
-                      <input type="text" name="cari_peg" class="form-control">
-                      <span class="input-group-btn" action="searchpeg.php" method="post">
-                        <input type="button" name="cari" class="btn btn-primary" value="Cari">
+                      <input type="text" name="cari_peg" class="form-control" placeholder="Cari Nama Pegawai">
+                      <span class="input-group-btn">
+                        <input type="submit" name="cari" class="btn btn-primary" value="Cari">
                       </span>
                     </div>
                     </form>

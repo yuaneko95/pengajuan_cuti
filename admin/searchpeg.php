@@ -34,15 +34,14 @@
                     <div class="clearfix"></div>
                   </div>
                   <a href="tambah_pegawai.php" class="btn btn-lg btn-primary" >Tambah Pegawai</a>
-                  <form action="" method="post">
-                  	<div class="row">
-	                    <div class="col-md-8"></div>
-	                    <div class="col-md-4" style="top: -29px">
-	                      <input type="text" name="cari_peg" class=="form-control" placeholder="cari nama pegawai">
-	                      <input type="submit" name="cari" class="btn btn-primary" value="Cari Nama">
-	                    </div>
-                  	</div>
-                  </form>
+                    <form action="" method="post" accept-charset="utf-8">
+                      <div class="input-group">
+                        <input type="text" name="cari_peg" class="form-control" placeholder="Cari Nama Pegawai">
+                        <span class="input-group-btn">
+                          <input type="submit" name="cari" class="btn btn-primary" value="Cari">
+                        </span>
+                      </div>
+                    </form>
                   <div class="x_content">
 
                   <div class="table-responsive">
