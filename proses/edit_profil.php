@@ -37,9 +37,9 @@
   	}
 	$b = mysqli_query($conn,$a) or die (mysqli_error());
 	if ($b == true && $uploadOk =='1'){
-	echo "<script>alert('UPDATE $id_admin BERHASIL')</script>";
+	echo "<script>alert('Proses edit $nama_pegawai berhasil')</script>";
 	}else{
-	echo "<script>alert('UPDATE GAK BERHASIL')</script>";
+	echo "<script>alert('Mohon Maaf proses edit tidak berhasil')</script>";
 	}
 ?>
 <meta http-equiv="refresh" content="0;URL=../profil.php" />
