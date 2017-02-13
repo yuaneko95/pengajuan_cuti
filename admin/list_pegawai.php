@@ -34,18 +34,18 @@
                     <div class="clearfix"></div>
                   </div>
                   <a href="tambah_pegawai.php" class="btn btn-lg btn-primary" >Tambah Pegawai</a>
-                  <form action="searchpeg.php" method="post" accept-charset="utf-8">
-                    <div class="row">
-                    <div class="col-md-8"></div>
-                    <div class="col-md-4" style="top: -29px">
-                      <input type="text" name="cari_peg" class=="form-control" placeholder="cari nama pegawai">
-                      <input type="submit" name="cari" class="btn btn-primary" value="Cari Nama">
-                    </div>
-                  </div>
-                  </form>
-                  
-
                   <div class="x_content">
+                  <br>
+                  <br>
+                  <div class="row">
+                    <form action="searchpeg.php" method="post" accept-charset="utf-8">
+                      <div class="form-group col-md-8"></div>
+                      <div class=" form-group col-md-4" style="top: -29px">
+                        <input type="text" name="cari_peg" class=="form-control" placeholder="cari nama pegawai">
+                        <input type="submit" name="cari" class="btn btn-primary" value="Cari Nama">
+                      </div>
+                    </form>
+                  </div>
 
                   <div class="table-responsive">
                     <table class="table table-bordered" >

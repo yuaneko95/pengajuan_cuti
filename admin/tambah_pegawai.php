@@ -5,7 +5,7 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <title></title>
    <link rel="stylesheet" href="">
-   <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link href="vendors/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
      
@@ -53,10 +53,10 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">STATUS</label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">STATUS <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <div id="gender" class="btn-group" data-toggle="buttons">
-                            <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                            <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
                               <input type="radio" name="status_pegawai" value="admin"> &nbsp; Admin &nbsp;
                             </label>
                             <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
@@ -66,7 +66,7 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">JABATAN</label>
+                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">JABATAN <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select name="id_jabatan" class="form-control">
                           <?php  
@@ -80,20 +80,20 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">JENIS KELAMIN</label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">JENIS KELAMIN <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <div id="gender" class="btn-group" data-toggle="buttons">
                             <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
                               <input type="radio" name="jenis_kelamin" value="Laki-Laki"> &nbsp; Laki-laki &nbsp;
                             </label>
-                            <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                            <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
                               <input type="radio" name="jenis_kelamin" value="Perempuan"> Perempuan
                             </label>
                           </div>
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">EMAIL</label>
+                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">EMAIL <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input class="form-control col-md-7 col-xs-12" type="email" name="email">
                         </div>
@@ -111,7 +111,7 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">FOTO</label>
+                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">FOTO <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input class="form-control col-md-7 col-xs-12" type="file" name="foto" id="image-source" onchange="previewImage();">
                           <br>
@@ -123,13 +123,13 @@
                       </div>
                       
                       <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">USERNAME</label>
+                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">USERNAME <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input class="form-control col-md-7 col-xs-12" type="text" name="username">
+                          <input class="form-control col-md-7 col-xs-12" type="text" name="username" required>
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">PASSWORD</label>
+                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">PASSWORD <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input class="form-control col-md-7 col-xs-12" type="password" name="password" required>
                         </div>
