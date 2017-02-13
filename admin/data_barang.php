@@ -46,7 +46,7 @@
                         
                         <th><strong>ALASAN</strong></th>
                         <th><strong>STATUS</strong></th>
-                        <th colspan="2"><center>ACTION</center></th>
+                        <th colspan="3"><center>ACTION</center></th>
                       </tr>  
                       <?php $no=0; 
                           $sql = "SELECT id_pbarang,status,nama_pegawai,kategori,nama_barang ,tgl_pengajuan,berkas ,alasan 
@@ -76,6 +76,9 @@
                           <td align="center">
                             <a href="#" class="btn btn-xs btn-danger open_jon <?=$tmp['status'] != 'disetujui' && $tmp['status'] != 'ditolak' ? '' : 'disabled'?>" id="<?php echo $tmp['id_pbarang'];?>"><i class="glyphicon glyphicon-remove"></i> Tolak</a>
                           </td>
+                           <td align="center"> 
+                             <a href="#" class="btn btn-xs btn-danger <?=$tmp['status'] != 'Belum dikonfirmasi' ? '' : 'disabled'?>" onclick="confirmdel('proses/hapus_barang.php?&id_pbarang=<?php echo $tmp['id_pbarang']; ?>');"><i class="glyphicon glyphicon-trash"></i> hapus</a>
+                          </td>
                       </tr>
                      <?php }}else{ ?>
                       <tr>
@@ -89,6 +92,24 @@
                 </div>
               </div>
             </div>
+
+         <!-- confirm modal hapus -->
+            <div class="modal fade" id="modal_delete" style="margin-top: 150px">
+                <div class="modal-dialog">
+                    <div class="modal-content" style="margin-top:100px;">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" style="text-align:center;">Are you sure to delete this information ?</h4>
+                      </div>
+                                
+                      <div class="modal-footer" style="margin:0px; border-top:0px; text-align:center;">
+                        <a href="#" class="btn btn-danger" id="delete_link">Delete</a>
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end of confirm modal hapus -->
 
             <!-- modal setuju -->
         <div id="modalsetuju" class="modal fade" role="dialog" style="margin-top:100px;">
@@ -125,7 +146,12 @@
 
     <!-- Custom Theme Scripts -->
     <script src="build/js/custom.min.js"></script>
-    
+     <script type="text/javascript">
+        function confirmdel(delete_url) {
+          $('#modal_delete').modal('show', {backdrop:'static'});
+          document.getElementById('delete_link').setAttribute('href', delete_url);
+        }
+    </script>
     <script type="text/javascript">
     $(document).ready(function () {
        $(".open_modal").click(function(e) {
