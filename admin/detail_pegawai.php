@@ -49,7 +49,7 @@
                         </tr>
                         <tr>
                             <td><strong>Telpon</strong></td>
-                            <td><?php echo $r['telpon']; ?></td>
+                            <td><?php echo $r['telpon_pegawai']; ?></td>
                         </tr>
                         <tr>
                             <td><strong>Username</strong></td>
