@@ -83,10 +83,12 @@
                           <td><?php echo $tmp['email']; ?></td>
                           
                           <td><?php echo $tmp['telpon_pegawai']; ?></td>
-                          <!-- <td><img src="<?php echo'img/'.$tmp['foto']; ?>" alt="" style="width: 40px; height: 60px;"></td> -->
-                          <!-- <td align="center"><?php echo $tmp['jatah_cuti']; ?></td> -->
-                          <!-- <td><?php echo $tmp['username']; ?></td> -->
-                          <td>
+                          <td align="center">
+                            <a href="edit_pegawai.php?&id_pegawai=<?php echo $tmp['id_pegawai']; ?>" class="btn btn-success" ><i class="glyphicon glyphicon-pencil"></i></a>
+                            <a href="#" class="btn btn-primary open_modal" id="<?php echo $tmp['id_pegawai'] ?>"><i class="glyphicon glyphicon-list"></i></a>
+                            <a href="#" class="btn btn-danger" onclick="confirmdel('proses/hapus_pegawai.php?&id_pegawai=<?php echo $tmp['id_pegawai']; ?>');"><i class="glyphicon glyphicon-trash"></i></a>
+                          </td>
+                          <!-- <td>
                             <a href="#" class="btn btn-xs btn-primary open_modal" id="<?php echo $tmp['id_pegawai'] ?>"><i class="glyphicon glyphicon-list"></i> Detail</a>
                           </td>
                           <td>
@@ -94,7 +96,7 @@
                           </td>
                           <td>
                             <a href="#" class="btn btn-xs btn-danger" onclick="confirmdel('proses/hapus_pegawai.php?&id_pegawai=<?php echo $tmp['id_pegawai']; ?>');"><i class="glyphicon glyphicon-trash"></i> hapus</a>
-                          </td>
+                          </td> -->
                       </tr>
                       <?php }}else{ ?>
                       <tr>
