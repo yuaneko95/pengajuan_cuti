@@ -87,7 +87,7 @@
                           <!-- <td align="center"><?php echo $tmp['jatah_cuti']; ?></td> -->
                           <!-- <td><?php echo $tmp['username']; ?></td> -->
                           <td>
-                            <a href="#" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-list"></i> Detail</a>
+                            <a href="#" class="btn btn-xs btn-primary open_modal" id="<?php echo $tmp['id_pegawai'] ?>"><i class="glyphicon glyphicon-list"></i> Detail</a>
                           </td>
                           <td>
                             <a href="edit_pegawai.php?&id_pegawai=<?php echo $tmp['id_pegawai']; ?>" class="btn btn-xs btn-warning" ><i class="glyphicon glyphicon-pencil"></i> edit</a>
