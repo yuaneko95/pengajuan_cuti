@@ -15,8 +15,8 @@
 
 	// Periksa ukuran file================================================
 	if($_FILES["foto"]["name"] != ""){
-	if ($_FILES["foto"]["size"] > 50000000) {
-    echo "<script>alert('Maaf, File Anda terlalu besar...<br>')</script>";
+	if ($_FILES["foto"]["size"] > 1000000) {
+    echo "<script>alert('Maaf, File Anda terlalu besar...!')</script>";
     $uploadOk = 0;
 	}
 	}
@@ -30,13 +30,13 @@
 	}
 	}
 
-	if ($_FILES["foto"]["name"] == ""){
+	if ($_FILES["foto"]["name"] == "" || $uploadOk == '0'){
 	$a = "UPDATE pegawai SET nama_pegawai = '$nama_pegawai',username='$username', email = '$email', jenis_kelamin = '$jenis_kelamin', alamat_pegawai = '$alamat_pegawai', telpon_pegawai = '$telpon_pegawai' WHERE id_pegawai = '$id_pegawai'";
 	}else{
 	$a = "UPDATE pegawai SET nama_pegawai = '$nama_pegawai',username='$username', email = '$email', jenis_kelamin = '$jenis_kelamin', alamat_pegawai = '$alamat_pegawai', telpon_pegawai = '$telpon_pegawai', foto = '$file' WHERE id_pegawai = '$id_pegawai'";
   	}
 	$b = mysqli_query($conn,$a) or die (mysqli_error());
-	if ($b == true){
+	if ($b == true && $uploadOk =='1'){
 	echo "<script>alert('UPDATE $id_admin BERHASIL')</script>";
 	}else{
 	echo "<script>alert('UPDATE GAK BERHASIL')</script>";
