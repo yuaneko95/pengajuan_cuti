@@ -8,7 +8,7 @@ $hash = password_hash("$password", PASSWORD_DEFAULT, $option);
 $a = "UPDATE pegawai SET password = '$hash' WHERE id_pegawai = '$id_pegawai'";
 $b = mysqli_query($conn, $a) or die(mysqli_error($conn));
 if ($b) {
-	echo "<script>alert('berhasil di tambah')</script>";
+	echo "<script>alert('Password berhasil diubah')</script>";
 }
 
 ?>
