@@ -56,12 +56,11 @@
                         <th>JABATAN</th>
                         <th>JENIS KELAMIN</th>
                         <th>EMAIL</th>
-                        <th>ALAMAT PEGAWAI</th>
+                       
                         <th>TELPON PEGAWAI</th>
-                        <th>FOTO</th>
-                        <th>JATAH CUTI</th>
-                        <th>USERNAME</th>
-                        <th colspan="2"><center>ACTION</center></th>
+                       
+                       
+                        <th colspan="3"><center>ACTION</center></th>
                       </tr>  
                       <?php 
                           $no=0; 
@@ -82,11 +81,14 @@
                           <td><?php echo $tmp['jabatan']; ?></td>
                           <td><?php echo $tmp['jenis_kelamin']; ?></td>
                           <td><?php echo $tmp['email']; ?></td>
-                          <td><?php echo $tmp['alamat_pegawai']; ?></td>
+                          
                           <td><?php echo $tmp['telpon_pegawai']; ?></td>
-                          <td><img src="<?php echo'img/'.$tmp['foto']; ?>" alt="" style="width: 40px; height: 60px;"></td>
-                          <td align="center"><?php echo $tmp['jatah_cuti']; ?></td>
-                          <td><?php echo $tmp['username']; ?></td>
+                          <!-- <td><img src="<?php echo'img/'.$tmp['foto']; ?>" alt="" style="width: 40px; height: 60px;"></td> -->
+                          <!-- <td align="center"><?php echo $tmp['jatah_cuti']; ?></td> -->
+                          <!-- <td><?php echo $tmp['username']; ?></td> -->
+                          <td>
+                            <a href="#" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-list"></i> Detail</a>
+                          </td>
                           <td>
                             <a href="edit_pegawai.php?&id_pegawai=<?php echo $tmp['id_pegawai']; ?>" class="btn btn-xs btn-warning" ><i class="glyphicon glyphicon-pencil"></i> edit</a>
                           </td>
@@ -159,7 +161,22 @@
       document.getElementById('delete_link').setAttribute('href', delete_url);
     }
   </script>
- 
-  
+  <script type="text/javascript">
+    $(document).ready(function () {
+       $(".open_modal").click(function(e) {
+          var m = $(this).attr("id");
+          $.ajax({
+            url: "detail_pegawai.php",
+            type: "GET",
+            data : {id_pegawai: m,},
+            success: function (ajaxData){
+              $("#ModalEdit").html(ajaxData);
+              $("#ModalEdit").modal('show',{backdrop: 'true'});
+               }
+             });
+          });
+        });
+  </script> 
+    
   </body>
 </html>

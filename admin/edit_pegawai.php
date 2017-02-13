@@ -165,7 +165,7 @@
               <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Password</label>
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <input class="form-control col-md-7 col-xs-12" type="hidden" name="id_pegawai" value="<?php echo $temp['id_pegawai']; ?>">
-                <input class="form-control col-md-7 col-xs-12" type="text" name="password" value="">
+                <input class="form-control col-md-7 col-xs-12" type="password" name="password" value="">
               </div>
             </div>
             <div class="form-group">
