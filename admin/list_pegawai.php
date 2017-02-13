@@ -33,22 +33,18 @@
                     </ul>
                     <div class="clearfix"></div>
                   </div>
-                  <a href="tambah_pegawai.php" class="btn btn-lg btn-primary" >Tambah Pegawai</a>
                   <div class="x_content">
-                  <br>
-                  <br>
-                  <div class="row">
+                  <a href="tambah_pegawai.php" class="btn btn-lg btn-primary" >Tambah Pegawai</a>    
                     <form action="searchpeg.php" method="post" accept-charset="utf-8">
-                      <div class="form-group col-md-8"></div>
-                      <div class=" form-group col-md-4" style="top: -29px">
-                        <input type="text" name="cari_peg" class=="form-control" placeholder="cari nama pegawai">
-                        <input type="submit" name="cari" class="btn btn-primary" value="Cari Nama">
-                      </div>
+                    <div class="input-group">
+                      <input type="text" name="cari_peg" class="form-control">
+                      <span class="input-group-btn" action="searchpeg.php" method="post">
+                        <input type="button" name="cari" class="btn btn-primary" value="Cari">
+                      </span>
+                    </div>
                     </form>
-                  </div>
-
                   <div class="table-responsive">
-                    <table class="table table-bordered" >
+                    <table class="table table-striped table-bordered table-hover" >
                       <tr>
                         <!-- <th>NO</th> -->
                         <th>ID PEGAWAI</th>
@@ -84,9 +80,9 @@
                           
                           <td><?php echo $tmp['telpon_pegawai']; ?></td>
                           <td align="center">
-                            <a href="edit_pegawai.php?&id_pegawai=<?php echo $tmp['id_pegawai']; ?>" class="btn btn-success" ><i class="glyphicon glyphicon-pencil"></i></a>
-                            <a href="#" class="btn btn-primary open_modal" id="<?php echo $tmp['id_pegawai'] ?>"><i class="glyphicon glyphicon-list"></i></a>
-                            <a href="#" class="btn btn-danger" onclick="confirmdel('proses/hapus_pegawai.php?&id_pegawai=<?php echo $tmp['id_pegawai']; ?>');"><i class="glyphicon glyphicon-trash"></i></a>
+                            <a href="#" class="btn btn-xs btn-success open_modal" id="<?php echo $tmp['id_pegawai'] ?>"><i class="glyphicon glyphicon-list"></i></a>
+                            <a href="edit_pegawai.php?&id_pegawai=<?php echo $tmp['id_pegawai']; ?>" class="btn btn-xs btn-warning" ><i class="glyphicon glyphicon-pencil"></i></a>
+                            <a href="#" class="btn btn-xs btn-danger" onclick="confirmdel('proses/hapus_pegawai.php?&id_pegawai=<?php echo $tmp['id_pegawai']; ?>');"><i class="glyphicon glyphicon-trash"></i></a>
                           </td>
                           <!-- <td>
                             <a href="#" class="btn btn-xs btn-primary open_modal" id="<?php echo $tmp['id_pegawai'] ?>"><i class="glyphicon glyphicon-list"></i> Detail</a>

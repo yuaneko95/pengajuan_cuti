@@ -33,7 +33,7 @@
 
                   <div class="x_content">
                     <div class="table-responsive">
-                      <table class="table table-bordered" >
+                      <table class="table table-striped table-bordered table-hover" >
                       <tr>
                         <th><strong>NAMA PEGAWAI</strong></th>
                         <!-- <th><strong>JENIS CUTI</strong></th> -->

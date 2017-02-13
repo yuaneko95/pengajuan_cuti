@@ -33,14 +33,14 @@
                     </ul>
                     <div class="clearfix"></div>
                   </div>
-                  <a href="#" class="btn btn-lg btn-primary" data-target="#modaladd" data-toggle="modal">tambah data</a>
-                  <div class="x_content">
+                  <div class="col-md-5">
                     <br />
-                    <table class="table table-bordered" >
+                  <a href="#" class="btn btn-lg btn-primary" data-target="#modaladd" data-toggle="modal">tambah data</a>
+                    <table class="table table-striped table-bordered table-hover" >
                       <tr>
                         <th>NO</th>
                         <th>JENIS CUTI</th>
-                        <th>ACTION</th>
+                        <th><center>ACTION</center></th>
                       </tr>  
                       <?php $no=0; 
                           $sql = "SELECT * FROM jenis_cuti";
@@ -51,9 +51,9 @@
                       <tr>
                           <td><?php echo $no; ?></td>
                           <td><?php echo $tmp['nama_cuti']; ?></td>
-                          <td>
-                            <a href="#" class="btn btn-xs btn-warning open_modal" id="<?php echo $tmp['id_jcuti']; ?>" ><i class="glyphicon glyphicon-pencil"></i> edit</a>
-                            <a href="#" class="btn btn-xs btn-danger" onclick="confirmdel('proses/hapus_jenis_cuti.php?&id_jcuti=<?php echo $tmp['id_jcuti']; ?>');"><i class="glyphicon glyphicon-trash"></i> hapus</a>
+                          <td align="center">
+                            <a href="#" class="btn btn-xs btn-warning open_modal" id="<?php echo $tmp['id_jcuti']; ?>" ><i class="glyphicon glyphicon-pencil"></i></a>
+                            <a href="#" class="btn btn-xs  btn-danger" onclick="confirmdel('proses/hapus_jenis_cuti.php?&id_jcuti=<?php echo $tmp['id_jcuti']; ?>');"><i class="glyphicon glyphicon-trash"></i></a>
                           </td>
                       </tr>
                       <?php } ?>
