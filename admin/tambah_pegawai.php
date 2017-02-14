@@ -36,7 +36,7 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" action="proses/tambah_pegawai.php" method="POST" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
+                    <form id="myform" action="proses/tambah_pegawai.php" method="POST" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left" onsubmit="return validasiusername()">
 
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">ID PEGAWAI <span class="required">*</span>
@@ -125,7 +125,7 @@
                       <div class="form-group">
                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">USERNAME <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input class="form-control col-md-7 col-xs-12" type="text" name="username" required pattern="^[a-zA-Z0-9]"  oninvalid="this.setCustomValidity('input hanya boleh a-z A-Z 1-9 tanpa spasi')">
+                          <input class="form-control col-md-7 col-xs-12" type="text" name="username" required oninvalid="this.setCustomValidity('input hanya boleh a-z A-Z 1-9 tanpa spasi')" oninput="setCustomValidity('')">
                         </div>
                       </div>
                       <div class="form-group">
@@ -137,7 +137,8 @@
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button type="submit" class="btn btn-primary">Cancel</button>
+                          <button type="reset" class="btn btn-primary">Cancel</button>
+                          <!-- <input type="submit"  class="btn btn-success" value="submit"> -->
                           <button type="submit" class="btn btn-success">Submit</button>
                         </div>
                       </div>
@@ -169,6 +170,21 @@
           document.getElementById("image-preview").src = oFREvent.target.result;
         };
       };
+    </script>
+    <script type="text/javascript">
+      function validasiusername() {
+        var username = document.forms[myform][username].value;
+
+        var char=[a-zA-Z0-9];
+
+        if (username==null || username == "") {
+          alert("username tidak boleh kosong");
+        }
+        if (!username.match(char)) {
+          alert("karakter yang dibolehkan hanya a-z A-Z 0-9 tanpa spasi");
+        }
+
+      }
     </script>
   </body>
   </html>
