@@ -33,6 +33,7 @@
                     </ul>
                     <div class="clearfix"></div>
                   </div>
+                  <div class="x_content">
                   <a href="tambah_pegawai.php" class="btn btn-lg btn-primary" >Tambah Pegawai</a>
                     <form action="" method="post" accept-charset="utf-8">
                       <div class="input-group">
@@ -42,8 +43,6 @@
                         </span>
                       </div>
                     </form>
-                  <div class="x_content">
-
                   <div class="table-responsive">
                     <table class="table table-bordered" >
                       <tr>
@@ -53,10 +52,7 @@
                         <th>JABATAN</th>
                         <th>JENIS KELAMIN</th>
                         <th>EMAIL</th>
-                        <th>ALAMAT PEGAWAI</th>
                         <th>TELPON PEGAWAI</th>
-                        <th>FOTO</th>
-                        <th>JATAH CUTI</th>
                         <th>USERNAME</th>
                         <th colspan="2"><center>ACTION</center></th>
                       </tr>  
@@ -75,10 +71,7 @@
                           <td><?php echo $tmp['jabatan']; ?></td>
                           <td><?php echo $tmp['jenis_kelamin']; ?></td>
                           <td><?php echo $tmp['email']; ?></td>
-                          <td><?php echo $tmp['alamat_pegawai']; ?></td>
                           <td><?php echo $tmp['telpon_pegawai']; ?></td>
-                          <td><img src="<?php echo'img/'.$tmp['foto']; ?>" alt="" style="width: 40px; height: 60px;"></td>
-                          <td align="center"><?php echo $tmp['jatah_cuti']; ?></td>
                           <td><?php echo $tmp['username']; ?></td>
                           <td>
                             <a href="edit_pegawai.php?&id_pegawai=<?php echo $tmp['id_pegawai']; ?>" class="btn btn-xs btn-warning" ><i class="glyphicon glyphicon-pencil"></i> edit</a>

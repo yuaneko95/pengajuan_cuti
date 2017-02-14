@@ -30,7 +30,30 @@
                     <h2><strong>List Data Cuti Pegawai</strong></h2>
                     <div class="clearfix"></div>
                   </div>
-
+                  <div class="x_content">
+                    <form action="filter.php" method="post" accept-charset="utf-8">
+                    <h5>view by month</h5>
+                    <div class="input-group">
+                    <select name="bulan" class="form-control">
+                        <option value="01">Januari</option>
+                        <option value="02">Februari</option>
+                        <option value="03">Maret</option>
+                        <option value="04">April</option>
+                        <option value="05">Mei</option>
+                        <option value="06">Juni</option>
+                        <option value="07">Juli</option>
+                        <option value="08">Agustus</option>
+                        <option value="09">September</option>
+                        <option value="10">Oktober</option>
+                        <option value="12">November</option>
+                        <option value="12">Desember</option>
+                      </select>
+                      <span class="input-group-btn">
+                      <input type="submit" name="cari" value="cari" class="btn btn-primary">
+                      </span>
+                    </div>
+                    </form>
+                  </div>
                   <div class="x_content">
                     <div class="table-responsive">
                       <table class="table table-striped table-bordered table-hover" >
@@ -102,7 +125,9 @@
                       </tr>
                       <?php } ?>
                     </table>
-                       <?php  
+                       
+                    </div>
+                    <?php  
                       $sql = "SELECT COUNT(id_pcuti) FROM permohonan_cuti ";  
                       $rs_result = mysqli_query($conn,$sql) or die(mysqli_error($conn));  
                       $row = mysqli_fetch_row($rs_result);  
@@ -114,7 +139,6 @@
                       };  
                       echo $pagLink . "</ul";  
                       ?>
-                    </div>
                   </div>
                 </div>
               </div>
