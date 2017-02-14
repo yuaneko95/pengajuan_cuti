@@ -170,10 +170,5 @@
         };
       };
     </script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-          alert($("#text1").data("validationmessage"));
-      });
-    </script>
   </body>
   </html>
