@@ -60,7 +60,7 @@
                       </tr>  
                       <?php 
                           $no=0; 
-                          $limit = 7;  
+                          $limit = 10;  
                           if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; };  
                           $start_from = ($page-1) * $limit; 
                           $sql = "SELECT id_pegawai,nama_pegawai,jabatan,jenis_kelamin,email,alamat_pegawai,telpon_pegawai,foto,jatah_cuti, username FROM pegawai INNER JOIN jabatan ON jabatan.id_jabatan = pegawai.id_jabatan LIMIT $start_from, $limit";
