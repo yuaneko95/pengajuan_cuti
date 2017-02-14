@@ -139,7 +139,7 @@
             </div>
             <!-- end of confirm modal hapus -->
 
-          <div id="ModalEdit" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div id="ModalEdit" class="modal fade" style="margin-top: 100px">
 
           </div>  
         </div>
