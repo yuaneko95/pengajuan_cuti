@@ -178,7 +178,6 @@
                           while ($tmp = mysqli_fetch_assoc($s)) {  
                           $no++
                       ?>
-                      ?>
                       <tr>
                           <td><?php echo $no; ?></td>
                           <td><?php echo $tmp['nama_pegawai']; ?></td>

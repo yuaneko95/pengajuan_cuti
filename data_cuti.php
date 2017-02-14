@@ -112,7 +112,9 @@
                       </tr>
                       <?php } ?>
                     </table>
-                     <?php  
+                     
+                    </div>
+                    <?php  
                       $sql = "SELECT COUNT(id_pcuti) FROM permohonan_cuti WHERE id_pegawai = '$id_pegawai'";  
                       $rs_result = mysqli_query($conn,$sql) or die(mysqli_error($conn));  
                       $row = mysqli_fetch_row($rs_result);  
@@ -124,7 +126,6 @@
                       };  
                       echo $pagLink . "</ul";  
                       ?>
-                    </div>
                   </div>
                 </div>
               </div>
