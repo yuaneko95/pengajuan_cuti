@@ -32,14 +32,15 @@
                       </li>
                     </ul>
                     <div class="clearfix"></div>
-                     <?php
-    if(isset($_GET['id_pcuti'])){
-    include "cetak_men.php";
-    }?>
+                    <?php
+                      if(isset($_GET['id_pcuti'])){
+                      include "cetak_men.php";
+                    }?>
                   </div>
-                  <div class="col-md-2 col-sm-3 col-xs-3">
+                  <div class="x_content">
                     <form action="filter.php" method="post" accept-charset="utf-8">
                     <h5>view by month</h5>
+                    <div class="input-group">
                     <select name="bulan" class="form-control">
                         <option value="01">Januari</option>
                         <option value="02">Februari</option>
@@ -54,7 +55,10 @@
                         <option value="12">November</option>
                         <option value="12">Desember</option>
                       </select>
+                      <span class="input-group-btn">
                       <input type="submit" name="cari" value="cari" class="btn btn-primary">
+                      </span>
+                    </div>
                     </form>
                   </div>
                   
@@ -76,7 +80,7 @@
                       <?php 
                           
                           $id_pegawai = $_SESSION['id_pegawai'];
-                           $limit = 4;  
+                           $limit = 10;  
                           if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; };  
                           $start_from = ($page-1) * $limit; 
                           $sql = "SELECT id_pcuti,status, tgl_pengajuan, tgl_mulai_cuti,tgl_akhir_cuti, alasan 
