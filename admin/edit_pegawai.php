@@ -42,7 +42,7 @@
                         $query=mysqli_query($conn,$sql) or die (mysqli_error($conn));
                         $temp=mysqli_fetch_array($query);
                     ?>
-                    <form id="demo-form2" action="proses/edit_pegawai.php" method="POST" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
+                    <form action="proses/edit_pegawai.php" method="POST" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left" onsubmit="return validasi_input(this)">
 
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">ID PEGAWAI <span class="required">*</span>
@@ -62,7 +62,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name" >USERNAME <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" name="username" required="required" class="form-control col-md-7 col-xs-12" value="<?php echo $temp['username']; ?>" pattern="[a-zA-Z1-9]"  oninvalid="this.setCustomValidity('input hanya boleh a-z A-Z 1-9 tanpa spasi')">
+                          <input type="text" name="username" required="required" class="form-control col-md-7 col-xs-12" value="<?php echo $temp['username']; ?>" oninvalid="this.setCustomValidity('input hanya boleh a-z A-Z 1-9 tanpa spasi')">
                         </div>
                       </div>
                       <div class="form-group">
@@ -198,6 +198,17 @@
           document.getElementById("image-preview").src = oFREvent.target.result;
         };
       };
+    </script>
+    <script type="text/javascript">
+    function validasi_input(form){
+       pola_username=/^[a-zA-Z0-9\_\-]{6,100}$/;
+       if (!pola_username.test(form.username.value)){
+          alert ('Username minimal 6 karakter dan hanya boleh Huruf atau Angka!');
+          form.username.focus();
+          return false;
+       }
+       return (true);
+    }
     </script>
   </body>
   </html>

@@ -13,23 +13,24 @@
   	$uploadOk 		= 1;
   	$imageFileType 	= pathinfo($target_file,PATHINFO_EXTENSION);	
 
+
 	// Periksa ukuran file================================================
 	if($_FILES["foto"]["name"] != ""){
-	if ($_FILES["foto"]["size"] > 1000000) {
-    echo "<script>alert('Maaf, File Anda terlalu besar...!')</script>";
-    $uploadOk = 0;
-	}
+		if ($_FILES["foto"]["size"] > 1000000) {
+		    echo "<script>alert('Maaf, File Anda terlalu besar...!')</script>";
+		    $uploadOk = 0;
+		}
 	}
 
 	// Format yang diperbolehkan
 	if($_FILES["foto"]["name"] != ""){
-	if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-  	&& $imageFileType != "gif" && $imageFileType != "JPG" ) {
-    echo "<script>alert('Maaf, hanya Format JPG, JPEG, PNG & GIF yang diperbolehkan....<br>')</script>";
-    $uploadOk = 0;
+		if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+		  	&& $imageFileType != "gif" && $imageFileType != "JPG" ) {
+			    echo "<script>alert('Maaf, hanya Format JPG, JPEG, PNG & GIF yang diperbolehkan....<br>')</script>";
+			    $uploadOk = 0;
+		}
 	}
-	}
-
+	
 	if ($_FILES["foto"]["name"] == "" || $uploadOk == '0'){
 	$a = "UPDATE pegawai SET nama_pegawai = '$nama_pegawai',username='$username', email = '$email', jenis_kelamin = '$jenis_kelamin', alamat_pegawai = '$alamat_pegawai', telpon_pegawai = '$telpon_pegawai' WHERE id_pegawai = '$id_pegawai'";
 	}else{
@@ -37,9 +38,10 @@
   	}
 	$b = mysqli_query($conn,$a) or die (mysqli_error());
 	if ($b == true && $uploadOk =='1'){
-	echo "<script>alert('Proses edit $nama_pegawai berhasil')</script>";
+		echo "<script>alert('Proses edit $nama_pegawai berhasil')</script>";
 	}else{
-	echo "<script>alert('Mohon Maaf proses edit tidak berhasil')</script>";
+		echo "<script>alert('Mohon Maaf proses edit tidak berhasil')</script>";
 	}
+	
 ?>
 <meta http-equiv="refresh" content="0;URL=../profil.php" />

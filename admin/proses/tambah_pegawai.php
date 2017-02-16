@@ -35,9 +35,9 @@
 		}
 	}
 
-	if (!preg_match('/^[a-zA-Z0-9]$/', $username)) {
-		echo "<script>alert('karakter username hanya boleh a-z A-Z 0-9 tanpa spasi')</script>";
-	} else {
+	// if (!preg_match("/[a-zA-Z0-9]/", $username)) {
+	// 	echo "<script>alert('karakter username hanya boleh a-z A-Z 0-9 tanpa spasi')</script>";
+	// } else {
 		
 		$sql = "INSERT INTO pegawai VALUES('$id_pegawai','$nama_pegawai','$id_jabatan','$jenis_kelamin','$email','$alamat_pegawai','$telpon_pegawai','$file','$username','$hash','14','$status_pegawai')";
 	 	$s = mysqli_query($conn, $sql) or die (mysqli_error($conn));
@@ -46,7 +46,7 @@
 		}else {
 			echo "<script>alert('DATA GAGAL MASUK )</script>";
 		}
-	}
+	//}
 
 	
 ?>

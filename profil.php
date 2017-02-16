@@ -35,7 +35,7 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" action="proses/edit_profil.php" method="POST" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
+                    <form action="proses/edit_profil.php" method="POST" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left" onsubmit="return validasi_input(this)">
                       <?php 
                         $id_pegawai = $_SESSION['id_pegawai'];
                         $sql = "SELECT * FROM pegawai WHERE pegawai.id_pegawai = '$id_pegawai'";
@@ -138,6 +138,17 @@
           document.getElementById("image-preview").src = oFREvent.target.result;
         };
       };
+    </script>
+    <script type="text/javascript">
+    function validasi_input(form){
+       pola_username=/^[a-zA-Z0-9\_\-]{6,100}$/;
+       if (!pola_username.test(form.username.value)){
+          alert ('Username minimal 6 karakter dan hanya boleh Huruf atau Angka!');
+          form.username.focus();
+          return false;
+       }
+       return (true);
+    }
     </script>
   </body>
 </html>

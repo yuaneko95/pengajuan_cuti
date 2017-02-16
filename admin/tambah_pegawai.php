@@ -36,7 +36,7 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form id="myform" action="proses/tambah_pegawai.php" method="POST" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left" onsubmit="return validasiusername()">
+                    <form action="proses/tambah_pegawai.php" method="POST" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left" onsubmit="return validasi_input(this)">
 
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">ID PEGAWAI <span class="required">*</span>
@@ -171,20 +171,16 @@
         };
       };
     </script>
-    <script type="text/javascript">
-      function validasiusername() {
-        var username = document.forms[myform][username].value;
-
-        var char=[a-zA-Z0-9];
-
-        if (username==null || username == "") {
-          alert("username tidak boleh kosong");
-        }
-        if (!username.match(char)) {
-          alert("karakter yang dibolehkan hanya a-z A-Z 0-9 tanpa spasi");
-        }
-
-      }
+   <script type="text/javascript">
+    function validasi_input(form){
+       pola_username=/^[a-zA-Z0-9\_\-]{6,100}$/;
+       if (!pola_username.test(form.username.value)){
+          alert ('Username minimal 6 karakter dan hanya boleh Huruf atau Angka!');
+          form.username.focus();
+          return false;
+       }
+       return (true);
+    }
     </script>
   </body>
   </html>
