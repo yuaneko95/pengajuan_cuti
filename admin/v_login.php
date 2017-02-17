@@ -6,6 +6,7 @@
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="vendors/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="vendors/bootstrap/dist/css/styles.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.3.8/sweetalert2.min.css">
 </head>
 <body>
 	
@@ -14,15 +15,15 @@
 			<div class="login-panel panel panel-default">
 				<div class="panel-heading">Log in</div>
 				<div class="panel-body">
-					<form role="form" action="proses/login.php" method="POST">
+					<form role="form" action="#" method="POST" id="form-login">
 						<fieldset>
 							<div class="form-group">
-								<input class="form-control" placeholder="Username" name="username_admin" type="text" autofocus="">
+								<input class="form-control" placeholder="Username" name="username" type="text" autofocus="">
 							</div>
 							<div class="form-group">
-								<input class="form-control" placeholder="Password" name="password_admin" type="password" value="">
+								<input class="form-control" placeholder="Password" name="password" type="password" value="">
 							</div>
-							<button type="submit"class="btn btn-primary"><i class="glyphicon glyphicon-log-in"></i>  Login</button>
+							<input type="submit" id="btn-login" value="Login">
 						</fieldset>
 					</form>
 				</div>
@@ -33,6 +34,49 @@
  <script src="vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
     <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-	
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.3.8/sweetalert2.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$("#btn-login").on('click', function(e){
+			e.preventDefault();
+			var btn = $(this);
+			
+
+			$.ajax({
+                type : 'POST',
+                url : 'proses/login.php',
+                data : $( "#form-login" ).serialize()
+            })
+            .done(function(response){
+	            btn.button('reset');
+	            if(response.status == true){
+	                swal(
+					  'Good job!',
+					  response.message,
+					  'success'
+					)
+	                // data
+	                setTimeout(function(){ window.location.href = response.redirect; }, 2000);
+	            }else{
+	                swal(
+					  'Upps',
+					  response.message,
+					  'warning'
+					)
+	            }
+	        })
+	        .fail(function(response){
+	            btn.button('reset');
+	            swal(
+				  'Upps',
+				  response.message,
+				  'warning'
+				)
+	        });
+
+			
+		});
+	});
+</script>
 </body>
 </html>

@@ -201,7 +201,7 @@
     </script>
     <script type="text/javascript">
     function validasi_input(form){
-       pola_username=/^[a-zA-Z0-9\_\-]{6,100}$/;
+       pola_username=/^[a-zA-Z0-9\_\-]{4,100}$/;
        if (!pola_username.test(form.username.value)){
           alert ('Username minimal 6 karakter dan hanya boleh Huruf atau Angka!');
           form.username.focus();

@@ -5,10 +5,10 @@ include '../koneksi.php';
  
 if(!empty($_POST)){
      
-    $username_admin = $_POST['username_admin'];
-    $password_admin = $_POST['password_admin'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
  
-    $sql = "select * from tb_admin where username_admin='".$username_admin."' and password_admin='".$password_admin."'";
+    $sql = "select * from pegawai where username='".$username."' and password='".$password."'";
     #echo $sql."<br />";
     $query = mysqli_query($conn, $sql) or die (mysqli_error());
     // pengecekan query valid atau tidak
@@ -19,10 +19,12 @@ if(!empty($_POST)){
         if($row > 0){
             $_SESSION['isLoggedIn']=1;
             $_SESSION['username_admin']=$username_admin;
-            header('Location: ../index.php');
+            
+            $result  = array('status' => true, 'message' => 'berhasil login', redirect('../index.php','refresh') );
         }else{
-            echo "username atau password salah";
+            $result  = array('status' => false, 'message' => 'gagal login' );
         }
+        echo json_encode($result);
     }
 
 }
