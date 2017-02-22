@@ -4,9 +4,9 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="vendors/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="vendors/animate/animate.min.css">
-	<link rel="stylesheet" type="text/css" href="vendors/bootstrap/dist/css/styles.css">
+	<link rel="stylesheet" type="text/css" href="admin/vendors/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="admin/vendors/animate/animate.min.css">
+	<link rel="stylesheet" type="text/css" href="admin/vendors/bootstrap/dist/css/styles.css">
 </head>
 <body>
 	<div class="container">
@@ -58,7 +58,7 @@
 					<form role="form" action="" method="POST">
 						<fieldset>
 							<div class="form-group">
-								<input class="form-control" placeholder="Username" name="username" type="text" autofocus="">
+								<input class="form-control" placeholder="Username" name="username" type="text" autofocus="" required>
 							</div>
 							<div class="form-group">
 								<input class="form-control" placeholder="Password" name="password" type="password" value="" required>
@@ -78,9 +78,9 @@
 		</div><!-- /.col-->
 	</div><!-- /.row -->	
 	</div><!-- container -->
- <script src="vendors/jquery/dist/jquery.min.js"></script>
+ <script src="admin/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
-    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="admin/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 	
 </body>
 </html>

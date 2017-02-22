@@ -4,8 +4,8 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="vendors/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="vendors/bootstrap/dist/css/styles.css">
+	<link rel="stylesheet" type="text/css" href="admin/vendors/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="admin/vendors/bootstrap/dist/css/styles.css">
 </head>
 <body>
 	<?php 
@@ -40,9 +40,9 @@
 		</div><!-- /.col-->
 	</div><!-- /.row -->	
 
- <script src="vendors/jquery/dist/jquery.min.js"></script>
+ <script src="admin/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
-    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="admin/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 	
 </body>
 </html>
